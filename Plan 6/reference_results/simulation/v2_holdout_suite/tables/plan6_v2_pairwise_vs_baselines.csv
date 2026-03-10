@@ -1,0 +1,7 @@
+focus_policy,baseline,paired_runs,throughput_delta_mean,throughput_delta_pct,p95_latency_delta_mean,p95_latency_delta_pct,energy_delta_mean,energy_delta_pct,joint_wins_throughput_and_p95,throughput_wins,throughput_losses,throughput_sign_pvalue,p95_wins,p95_losses,p95_sign_pvalue,energy_wins,energy_losses,energy_sign_pvalue
+plan6_v2,fcfs,20,0.052621,14.0121,35.295,39.9683,6134.4213,16.7418,20,20,0,2e-06,20,0,2e-06,20,0,2e-06
+plan6_v2,feedback_threshold,20,0.023397,5.7803,22.52,29.815,5230.5624,14.636,19,19,0,4e-06,20,0,2e-06,20,0,2e-06
+plan6_v2,fixed_priority,20,0.008163,1.9435,5.9975,10.1635,302.1581,0.9807,12,14,4,0.030884,16,4,0.011818,10,10,1.0
+plan6_v2,heft,20,0.010908,2.6143,24.015,31.1772,5223.7269,14.6197,16,16,4,0.011818,20,0,2e-06,19,1,4e-05
+plan6_v2,least_loaded,20,0.043227,11.2296,27.0075,33.7509,7226.5529,19.1515,20,20,0,2e-06,20,0,2e-06,20,0,2e-06
+plan6_v2,work_stealing,20,0.006512,1.5444,6.1425,10.3837,282.9544,0.919,10,12,4,0.076813,15,5,0.041389,10,10,1.0

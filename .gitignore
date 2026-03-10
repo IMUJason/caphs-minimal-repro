@@ -1,0 +1,25 @@
+.DS_Store
+*.pyc
+__pycache__/
+.pytest_cache/
+.venv/
+
+# Python build artifacts
+build/
+dist/
+*.egg-info/
+
+# Swift build artifacts
+.build/
+
+# Generated simulation outputs
+Plan 6/results/
+Plan 6/logs/
+
+# Generated hardware outputs
+Plan 6/m4_hardware_validation/results/
+
+# Paper assets are intentionally excluded
+Plan 6/paper/
+Plan 6/references/
+

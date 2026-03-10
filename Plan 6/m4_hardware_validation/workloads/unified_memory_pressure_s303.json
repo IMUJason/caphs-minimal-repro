@@ -1,0 +1,284 @@
+{
+  "workload_id": "unified_memory_pressure_s303",
+  "family": "unified_memory_pressure",
+  "seed": 303,
+  "notes": "Real Apple M4 Pro hardware validation workload using chunked shared-memory GEMM tasks.",
+  "task_specs": [
+    {
+      "task_id": "T000",
+      "size": 1024,
+      "total_chunks": 82,
+      "priority": 1,
+      "arrival_ms": 0.0,
+      "parents": [],
+      "family": "unified_memory_pressure",
+      "bytes_moved": 12582912.0,
+      "criticality": 0.5
+    },
+    {
+      "task_id": "T001",
+      "size": 2048,
+      "total_chunks": 86,
+      "priority": 5,
+      "arrival_ms": 5.549,
+      "parents": [],
+      "family": "unified_memory_pressure",
+      "bytes_moved": 50331648.0,
+      "criticality": 0.5
+    },
+    {
+      "task_id": "T002",
+      "size": 2048,
+      "total_chunks": 75,
+      "priority": 3,
+      "arrival_ms": 11.171,
+      "parents": [],
+      "family": "unified_memory_pressure",
+      "bytes_moved": 50331648.0,
+      "criticality": 0.0
+    },
+    {
+      "task_id": "T003",
+      "size": 2048,
+      "total_chunks": 78,
+      "priority": 4,
+      "arrival_ms": 14.609,
+      "parents": [
+        "T001"
+      ],
+      "family": "unified_memory_pressure",
+      "bytes_moved": 50331648.0,
+      "criticality": 0.0
+    },
+    {
+      "task_id": "T004",
+      "size": 1024,
+      "total_chunks": 83,
+      "priority": 3,
+      "arrival_ms": 17.783,
+      "parents": [
+        "T000"
+      ],
+      "family": "unified_memory_pressure",
+      "bytes_moved": 12582912.0,
+      "criticality": 0.0
+    },
+    {
+      "task_id": "T005",
+      "size": 2048,
+      "total_chunks": 86,
+      "priority": 5,
+      "arrival_ms": 34.378,
+      "parents": [],
+      "family": "unified_memory_pressure",
+      "bytes_moved": 50331648.0,
+      "criticality": 0.5
+    },
+    {
+      "task_id": "T006",
+      "size": 2048,
+      "total_chunks": 110,
+      "priority": 2,
+      "arrival_ms": 38.167,
+      "parents": [],
+      "family": "unified_memory_pressure",
+      "bytes_moved": 50331648.0,
+      "criticality": 0.0
+    },
+    {
+      "task_id": "T007",
+      "size": 1024,
+      "total_chunks": 81,
+      "priority": 4,
+      "arrival_ms": 29.966,
+      "parents": [],
+      "family": "unified_memory_pressure",
+      "bytes_moved": 12582912.0,
+      "criticality": 0.5
+    },
+    {
+      "task_id": "T008",
+      "size": 2048,
+      "total_chunks": 70,
+      "priority": 1,
+      "arrival_ms": 39.779,
+      "parents": [],
+      "family": "unified_memory_pressure",
+      "bytes_moved": 50331648.0,
+      "criticality": 0.0
+    },
+    {
+      "task_id": "T009",
+      "size": 1536,
+      "total_chunks": 81,
+      "priority": 4,
+      "arrival_ms": 37.073,
+      "parents": [
+        "T005",
+        "T007"
+      ],
+      "family": "unified_memory_pressure",
+      "bytes_moved": 28311552.0,
+      "criticality": 0.0
+    },
+    {
+      "task_id": "T010",
+      "size": 1536,
+      "total_chunks": 100,
+      "priority": 4,
+      "arrival_ms": 52.609,
+      "parents": [],
+      "family": "unified_memory_pressure",
+      "bytes_moved": 28311552.0,
+      "criticality": 0.0
+    },
+    {
+      "task_id": "T011",
+      "size": 1536,
+      "total_chunks": 79,
+      "priority": 2,
+      "arrival_ms": 70.125,
+      "parents": [],
+      "family": "unified_memory_pressure",
+      "bytes_moved": 28311552.0,
+      "criticality": 0.0
+    },
+    {
+      "task_id": "T012",
+      "size": 1536,
+      "total_chunks": 88,
+      "priority": 5,
+      "arrival_ms": 53.597,
+      "parents": [],
+      "family": "unified_memory_pressure",
+      "bytes_moved": 28311552.0,
+      "criticality": 0.0
+    },
+    {
+      "task_id": "T013",
+      "size": 2048,
+      "total_chunks": 89,
+      "priority": 2,
+      "arrival_ms": 87.195,
+      "parents": [],
+      "family": "unified_memory_pressure",
+      "bytes_moved": 50331648.0,
+      "criticality": 0.0
+    },
+    {
+      "task_id": "T014",
+      "size": 2048,
+      "total_chunks": 74,
+      "priority": 1,
+      "arrival_ms": 57.998,
+      "parents": [],
+      "family": "unified_memory_pressure",
+      "bytes_moved": 50331648.0,
+      "criticality": 1.0
+    },
+    {
+      "task_id": "T015",
+      "size": 2048,
+      "total_chunks": 79,
+      "priority": 5,
+      "arrival_ms": 70.7,
+      "parents": [],
+      "family": "unified_memory_pressure",
+      "bytes_moved": 50331648.0,
+      "criticality": 0.0
+    },
+    {
+      "task_id": "T016",
+      "size": 1536,
+      "total_chunks": 86,
+      "priority": 2,
+      "arrival_ms": 85.738,
+      "parents": [],
+      "family": "unified_memory_pressure",
+      "bytes_moved": 28311552.0,
+      "criticality": 0.0
+    },
+    {
+      "task_id": "T017",
+      "size": 1536,
+      "total_chunks": 97,
+      "priority": 2,
+      "arrival_ms": 78.562,
+      "parents": [],
+      "family": "unified_memory_pressure",
+      "bytes_moved": 28311552.0,
+      "criticality": 0.0
+    },
+    {
+      "task_id": "T018",
+      "size": 2048,
+      "total_chunks": 87,
+      "priority": 5,
+      "arrival_ms": 100.81,
+      "parents": [],
+      "family": "unified_memory_pressure",
+      "bytes_moved": 50331648.0,
+      "criticality": 0.0
+    },
+    {
+      "task_id": "T019",
+      "size": 1536,
+      "total_chunks": 102,
+      "priority": 1,
+      "arrival_ms": 88.852,
+      "parents": [],
+      "family": "unified_memory_pressure",
+      "bytes_moved": 28311552.0,
+      "criticality": 0.0
+    },
+    {
+      "task_id": "T020",
+      "size": 2048,
+      "total_chunks": 70,
+      "priority": 5,
+      "arrival_ms": 106.05,
+      "parents": [],
+      "family": "unified_memory_pressure",
+      "bytes_moved": 50331648.0,
+      "criticality": 0.0
+    },
+    {
+      "task_id": "T021",
+      "size": 2048,
+      "total_chunks": 96,
+      "priority": 5,
+      "arrival_ms": 138.605,
+      "parents": [],
+      "family": "unified_memory_pressure",
+      "bytes_moved": 50331648.0,
+      "criticality": 0.0
+    },
+    {
+      "task_id": "T022",
+      "size": 2048,
+      "total_chunks": 86,
+      "priority": 4,
+      "arrival_ms": 125.616,
+      "parents": [
+        "T014"
+      ],
+      "family": "unified_memory_pressure",
+      "bytes_moved": 50331648.0,
+      "criticality": 0.5
+    },
+    {
+      "task_id": "T023",
+      "size": 2048,
+      "total_chunks": 103,
+      "priority": 2,
+      "arrival_ms": 114.688,
+      "parents": [
+        "T007",
+        "T022"
+      ],
+      "family": "unified_memory_pressure",
+      "bytes_moved": 50331648.0,
+      "criticality": 0.0
+    }
+  ]
+}

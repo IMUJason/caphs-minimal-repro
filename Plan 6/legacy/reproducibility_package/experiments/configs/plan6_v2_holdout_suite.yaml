@@ -1,0 +1,27 @@
+paths:
+  data_dir: "Plan 6/legacy/reproducibility_package/data/v2_holdout_suite"
+  results_dir: "Plan 6/results/v2_holdout_suite"
+  logs_dir: "Plan 6/logs/v2_holdout_suite"
+
+workloads:
+  names:
+    - steady_mixed
+    - bursty_mixed
+    - thermal_pressure
+    - dag_stream
+  seeds:
+    - 6
+    - 7
+    - 8
+    - 9
+    - 10
+
+policies:
+  - fcfs
+  - least_loaded
+  - fixed_priority
+  - work_stealing
+  - heft
+  - feedback_threshold
+  - plan6
+  - plan6_v2

@@ -1,0 +1,3234 @@
+{
+  "metadata": {
+    "workload_name": "thermal_pressure",
+    "seed": 8,
+    "task_count": 135,
+    "profile": {
+      "task_count": 135,
+      "arrival_rate": 1.15,
+      "mix": {
+        "cpu_control": 0.18,
+        "gpu_dense": 0.42,
+        "npu_infer": 0.24,
+        "memory_bound": 0.16
+      },
+      "dag_probability": 0.3,
+      "burst_pattern": [
+        [
+          40,
+          70,
+          2.3
+        ]
+      ]
+    }
+  },
+  "tasks": [
+    {
+      "task_id": "thermal_pressure-task-000",
+      "dag_id": "thermal_pressure-dag-001",
+      "arrival_time": 3,
+      "priority": 7,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 38.77,
+      "bandwidth_demand": 2.327,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 8,
+        "gpu": 15,
+        "npu": 20
+      },
+      "power_draw": {
+        "cpu": 7.536,
+        "gpu": 10.173,
+        "npu": 8.666
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-001",
+      "dag_id": "thermal_pressure-dag-002",
+      "arrival_time": 6,
+      "priority": 7,
+      "latency_class": "interactive",
+      "task_type": "npu_infer",
+      "size": 29.087,
+      "bandwidth_demand": 0.866,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 11,
+        "gpu": 7,
+        "npu": 4
+      },
+      "power_draw": {
+        "cpu": 4.495,
+        "gpu": 6.293,
+        "npu": 4.795
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-002",
+      "dag_id": "thermal_pressure-dag-002",
+      "arrival_time": 8,
+      "priority": 6,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 48.753,
+      "bandwidth_demand": 2.475,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 22,
+        "gpu": 8,
+        "npu": 12
+      },
+      "power_draw": {
+        "cpu": 7.754,
+        "gpu": 12.652,
+        "npu": 9.795
+      },
+      "deps": [
+        "thermal_pressure-task-001"
+      ]
+    },
+    {
+      "task_id": "thermal_pressure-task-003",
+      "dag_id": "thermal_pressure-dag-002",
+      "arrival_time": 9,
+      "priority": 6,
+      "latency_class": "best_effort",
+      "task_type": "memory_bound",
+      "size": 46.368,
+      "bandwidth_demand": 4.438,
+      "checkpoint_interval": 0.33,
+      "migration_penalty": 4,
+      "service_time": {
+        "cpu": 10,
+        "gpu": 11,
+        "npu": 13
+      },
+      "power_draw": {
+        "cpu": 8.462,
+        "gpu": 10.343,
+        "npu": 8.932
+      },
+      "deps": [
+        "thermal_pressure-task-002",
+        "thermal_pressure-task-001"
+      ]
+    },
+    {
+      "task_id": "thermal_pressure-task-004",
+      "dag_id": "thermal_pressure-dag-002",
+      "arrival_time": 11,
+      "priority": 4,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 62.218,
+      "bandwidth_demand": 2.153,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 32,
+        "gpu": 11,
+        "npu": 18
+      },
+      "power_draw": {
+        "cpu": 8.261,
+        "gpu": 13.478,
+        "npu": 10.435
+      },
+      "deps": [
+        "thermal_pressure-task-003"
+      ]
+    },
+    {
+      "task_id": "thermal_pressure-task-005",
+      "dag_id": "thermal_pressure-dag-003",
+      "arrival_time": 12,
+      "priority": 6,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 73.572,
+      "bandwidth_demand": 3.544,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 36,
+        "gpu": 12,
+        "npu": 21
+      },
+      "power_draw": {
+        "cpu": 9.519,
+        "gpu": 15.532,
+        "npu": 12.025
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-006",
+      "dag_id": "thermal_pressure-dag-004",
+      "arrival_time": 13,
+      "priority": 9,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 34.758,
+      "bandwidth_demand": 2.129,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 7,
+        "gpu": 12,
+        "npu": 16
+      },
+      "power_draw": {
+        "cpu": 7.253,
+        "gpu": 9.791,
+        "npu": 8.341
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-007",
+      "dag_id": "thermal_pressure-dag-005",
+      "arrival_time": 14,
+      "priority": 9,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 33.238,
+      "bandwidth_demand": 1.429,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 6,
+        "gpu": 11,
+        "npu": 14
+      },
+      "power_draw": {
+        "cpu": 6.489,
+        "gpu": 8.761,
+        "npu": 7.463
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-008",
+      "dag_id": "thermal_pressure-dag-006",
+      "arrival_time": 17,
+      "priority": 10,
+      "latency_class": "interactive",
+      "task_type": "npu_infer",
+      "size": 16.942,
+      "bandwidth_demand": 1.18,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 6,
+        "gpu": 4,
+        "npu": 3
+      },
+      "power_draw": {
+        "cpu": 4.26,
+        "gpu": 5.964,
+        "npu": 4.544
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-009",
+      "dag_id": "thermal_pressure-dag-007",
+      "arrival_time": 20,
+      "priority": 8,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 90.746,
+      "bandwidth_demand": 2.038,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 42,
+        "gpu": 14,
+        "npu": 24
+      },
+      "power_draw": {
+        "cpu": 9.345,
+        "gpu": 15.247,
+        "npu": 11.804
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-010",
+      "dag_id": "thermal_pressure-dag-008",
+      "arrival_time": 22,
+      "priority": 9,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 27.367,
+      "bandwidth_demand": 2.271,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 6,
+        "gpu": 11,
+        "npu": 14
+      },
+      "power_draw": {
+        "cpu": 7.23,
+        "gpu": 9.76,
+        "npu": 8.314
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-011",
+      "dag_id": "thermal_pressure-dag-009",
+      "arrival_time": 24,
+      "priority": 6,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 54.396,
+      "bandwidth_demand": 2.162,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 26,
+        "gpu": 9,
+        "npu": 15
+      },
+      "power_draw": {
+        "cpu": 7.821,
+        "gpu": 12.76,
+        "npu": 9.879
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-012",
+      "dag_id": "thermal_pressure-dag-009",
+      "arrival_time": 25,
+      "priority": 3,
+      "latency_class": "best_effort",
+      "task_type": "memory_bound",
+      "size": 42.699,
+      "bandwidth_demand": 4.838,
+      "checkpoint_interval": 0.33,
+      "migration_penalty": 4,
+      "service_time": {
+        "cpu": 9,
+        "gpu": 10,
+        "npu": 12
+      },
+      "power_draw": {
+        "cpu": 8.825,
+        "gpu": 10.786,
+        "npu": 9.315
+      },
+      "deps": [
+        "thermal_pressure-task-011"
+      ]
+    },
+    {
+      "task_id": "thermal_pressure-task-013",
+      "dag_id": "thermal_pressure-dag-009",
+      "arrival_time": 26,
+      "priority": 5,
+      "latency_class": "best_effort",
+      "task_type": "memory_bound",
+      "size": 38.122,
+      "bandwidth_demand": 5.031,
+      "checkpoint_interval": 0.33,
+      "migration_penalty": 4,
+      "service_time": {
+        "cpu": 9,
+        "gpu": 10,
+        "npu": 11
+      },
+      "power_draw": {
+        "cpu": 8.4,
+        "gpu": 10.267,
+        "npu": 8.867
+      },
+      "deps": [
+        "thermal_pressure-task-012"
+      ]
+    },
+    {
+      "task_id": "thermal_pressure-task-014",
+      "dag_id": "thermal_pressure-dag-009",
+      "arrival_time": 28,
+      "priority": 6,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 50.552,
+      "bandwidth_demand": 4.033,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 23,
+        "gpu": 8,
+        "npu": 13
+      },
+      "power_draw": {
+        "cpu": 9.043,
+        "gpu": 14.755,
+        "npu": 11.423
+      },
+      "deps": [
+        "thermal_pressure-task-013",
+        "thermal_pressure-task-012"
+      ]
+    },
+    {
+      "task_id": "thermal_pressure-task-015",
+      "dag_id": "thermal_pressure-dag-010",
+      "arrival_time": 30,
+      "priority": 8,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 32.478,
+      "bandwidth_demand": 1.19,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 7,
+        "gpu": 12,
+        "npu": 16
+      },
+      "power_draw": {
+        "cpu": 6.478,
+        "gpu": 8.746,
+        "npu": 7.45
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-016",
+      "dag_id": "thermal_pressure-dag-011",
+      "arrival_time": 32,
+      "priority": 8,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 42.681,
+      "bandwidth_demand": 2.262,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 9,
+        "gpu": 17,
+        "npu": 22
+      },
+      "power_draw": {
+        "cpu": 7.698,
+        "gpu": 10.393,
+        "npu": 8.853
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-017",
+      "dag_id": "thermal_pressure-dag-011",
+      "arrival_time": 33,
+      "priority": 5,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 55.965,
+      "bandwidth_demand": 2.499,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 28,
+        "gpu": 10,
+        "npu": 16
+      },
+      "power_draw": {
+        "cpu": 8.082,
+        "gpu": 13.187,
+        "npu": 10.209
+      },
+      "deps": [
+        "thermal_pressure-task-016"
+      ]
+    },
+    {
+      "task_id": "thermal_pressure-task-018",
+      "dag_id": "thermal_pressure-dag-011",
+      "arrival_time": 35,
+      "priority": 9,
+      "latency_class": "interactive",
+      "task_type": "npu_infer",
+      "size": 26.84,
+      "bandwidth_demand": 1.39,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 9,
+        "gpu": 6,
+        "npu": 4
+      },
+      "power_draw": {
+        "cpu": 4.932,
+        "gpu": 6.905,
+        "npu": 5.261
+      },
+      "deps": [
+        "thermal_pressure-task-017"
+      ]
+    },
+    {
+      "task_id": "thermal_pressure-task-019",
+      "dag_id": "thermal_pressure-dag-012",
+      "arrival_time": 37,
+      "priority": 8,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 29.027,
+      "bandwidth_demand": 2.249,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 6,
+        "gpu": 11,
+        "npu": 14
+      },
+      "power_draw": {
+        "cpu": 7.023,
+        "gpu": 9.481,
+        "npu": 8.076
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-020",
+      "dag_id": "thermal_pressure-dag-013",
+      "arrival_time": 40,
+      "priority": 6,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 77.584,
+      "bandwidth_demand": 3.451,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 36,
+        "gpu": 12,
+        "npu": 20
+      },
+      "power_draw": {
+        "cpu": 9.798,
+        "gpu": 15.986,
+        "npu": 12.376
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-021",
+      "dag_id": "thermal_pressure-dag-014",
+      "arrival_time": 44,
+      "priority": 6,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 76.045,
+      "bandwidth_demand": 2.402,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 33,
+        "gpu": 11,
+        "npu": 19
+      },
+      "power_draw": {
+        "cpu": 8.963,
+        "gpu": 14.623,
+        "npu": 11.321
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-022",
+      "dag_id": "thermal_pressure-dag-015",
+      "arrival_time": 45,
+      "priority": 3,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 82.903,
+      "bandwidth_demand": 3.186,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 42,
+        "gpu": 14,
+        "npu": 24
+      },
+      "power_draw": {
+        "cpu": 9.829,
+        "gpu": 16.037,
+        "npu": 12.416
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-023",
+      "dag_id": "thermal_pressure-dag-016",
+      "arrival_time": 46,
+      "priority": 8,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 22.785,
+      "bandwidth_demand": 1.717,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 4,
+        "gpu": 8,
+        "npu": 10
+      },
+      "power_draw": {
+        "cpu": 6.24,
+        "gpu": 8.424,
+        "npu": 7.176
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-024",
+      "dag_id": "thermal_pressure-dag-017",
+      "arrival_time": 48,
+      "priority": 7,
+      "latency_class": "interactive",
+      "task_type": "npu_infer",
+      "size": 31.77,
+      "bandwidth_demand": 0.864,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 10,
+        "gpu": 7,
+        "npu": 4
+      },
+      "power_draw": {
+        "cpu": 4.451,
+        "gpu": 6.231,
+        "npu": 4.747
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-025",
+      "dag_id": "thermal_pressure-dag-018",
+      "arrival_time": 49,
+      "priority": 5,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 64.594,
+      "bandwidth_demand": 2.743,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 30,
+        "gpu": 10,
+        "npu": 17
+      },
+      "power_draw": {
+        "cpu": 8.606,
+        "gpu": 14.041,
+        "npu": 10.871
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-026",
+      "dag_id": "thermal_pressure-dag-019",
+      "arrival_time": 50,
+      "priority": 7,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 66.808,
+      "bandwidth_demand": 2.6,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 33,
+        "gpu": 11,
+        "npu": 19
+      },
+      "power_draw": {
+        "cpu": 8.73,
+        "gpu": 14.244,
+        "npu": 11.028
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-027",
+      "dag_id": "thermal_pressure-dag-020",
+      "arrival_time": 51,
+      "priority": 8,
+      "latency_class": "interactive",
+      "task_type": "npu_infer",
+      "size": 23.013,
+      "bandwidth_demand": 1.169,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 8,
+        "gpu": 6,
+        "npu": 4
+      },
+      "power_draw": {
+        "cpu": 4.675,
+        "gpu": 6.545,
+        "npu": 4.987
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-028",
+      "dag_id": "thermal_pressure-dag-021",
+      "arrival_time": 52,
+      "priority": 8,
+      "latency_class": "interactive",
+      "task_type": "npu_infer",
+      "size": 19.692,
+      "bandwidth_demand": 1.28,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 7,
+        "gpu": 5,
+        "npu": 3
+      },
+      "power_draw": {
+        "cpu": 4.57,
+        "gpu": 6.398,
+        "npu": 4.874
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-029",
+      "dag_id": "thermal_pressure-dag-022",
+      "arrival_time": 53,
+      "priority": 4,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 56.806,
+      "bandwidth_demand": 2.411,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 26,
+        "gpu": 9,
+        "npu": 15
+      },
+      "power_draw": {
+        "cpu": 8.198,
+        "gpu": 13.376,
+        "npu": 10.356
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-030",
+      "dag_id": "thermal_pressure-dag-022",
+      "arrival_time": 55,
+      "priority": 7,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 82.875,
+      "bandwidth_demand": 3.059,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 40,
+        "gpu": 14,
+        "npu": 23
+      },
+      "power_draw": {
+        "cpu": 10.015,
+        "gpu": 16.34,
+        "npu": 12.65
+      },
+      "deps": [
+        "thermal_pressure-task-029"
+      ]
+    },
+    {
+      "task_id": "thermal_pressure-task-031",
+      "dag_id": "thermal_pressure-dag-022",
+      "arrival_time": 57,
+      "priority": 7,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 30.788,
+      "bandwidth_demand": 1.778,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 6,
+        "gpu": 11,
+        "npu": 14
+      },
+      "power_draw": {
+        "cpu": 6.698,
+        "gpu": 9.043,
+        "npu": 7.703
+      },
+      "deps": [
+        "thermal_pressure-task-030",
+        "thermal_pressure-task-029"
+      ]
+    },
+    {
+      "task_id": "thermal_pressure-task-032",
+      "dag_id": "thermal_pressure-dag-022",
+      "arrival_time": 59,
+      "priority": 10,
+      "latency_class": "interactive",
+      "task_type": "npu_infer",
+      "size": 22.461,
+      "bandwidth_demand": 1.265,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 8,
+        "gpu": 6,
+        "npu": 3
+      },
+      "power_draw": {
+        "cpu": 4.367,
+        "gpu": 6.114,
+        "npu": 4.658
+      },
+      "deps": [
+        "thermal_pressure-task-031"
+      ]
+    },
+    {
+      "task_id": "thermal_pressure-task-033",
+      "dag_id": "thermal_pressure-dag-023",
+      "arrival_time": 60,
+      "priority": 10,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 32.132,
+      "bandwidth_demand": 1.806,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 6,
+        "gpu": 11,
+        "npu": 15
+      },
+      "power_draw": {
+        "cpu": 6.89,
+        "gpu": 9.302,
+        "npu": 7.924
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-034",
+      "dag_id": "thermal_pressure-dag-024",
+      "arrival_time": 61,
+      "priority": 5,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 51.039,
+      "bandwidth_demand": 3.156,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 23,
+        "gpu": 8,
+        "npu": 13
+      },
+      "power_draw": {
+        "cpu": 8.204,
+        "gpu": 13.386,
+        "npu": 10.363
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-035",
+      "dag_id": "thermal_pressure-dag-025",
+      "arrival_time": 62,
+      "priority": 8,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 58.838,
+      "bandwidth_demand": 3.301,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 26,
+        "gpu": 9,
+        "npu": 15
+      },
+      "power_draw": {
+        "cpu": 9.016,
+        "gpu": 14.711,
+        "npu": 11.389
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-036",
+      "dag_id": "thermal_pressure-dag-026",
+      "arrival_time": 63,
+      "priority": 9,
+      "latency_class": "interactive",
+      "task_type": "npu_infer",
+      "size": 31.867,
+      "bandwidth_demand": 1.802,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 11,
+        "gpu": 8,
+        "npu": 5
+      },
+      "power_draw": {
+        "cpu": 5.226,
+        "gpu": 7.317,
+        "npu": 5.575
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-037",
+      "dag_id": "thermal_pressure-dag-027",
+      "arrival_time": 64,
+      "priority": 7,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 53.251,
+      "bandwidth_demand": 4.489,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 25,
+        "gpu": 8,
+        "npu": 14
+      },
+      "power_draw": {
+        "cpu": 9.06,
+        "gpu": 14.782,
+        "npu": 11.444
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-038",
+      "dag_id": "thermal_pressure-dag-028",
+      "arrival_time": 65,
+      "priority": 4,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 59.26,
+      "bandwidth_demand": 4.105,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 29,
+        "gpu": 10,
+        "npu": 16
+      },
+      "power_draw": {
+        "cpu": 9.457,
+        "gpu": 15.43,
+        "npu": 11.946
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-039",
+      "dag_id": "thermal_pressure-dag-028",
+      "arrival_time": 66,
+      "priority": 8,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 68.85,
+      "bandwidth_demand": 3.15,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 33,
+        "gpu": 11,
+        "npu": 19
+      },
+      "power_draw": {
+        "cpu": 9.188,
+        "gpu": 14.991,
+        "npu": 11.606
+      },
+      "deps": [
+        "thermal_pressure-task-038"
+      ]
+    },
+    {
+      "task_id": "thermal_pressure-task-040",
+      "dag_id": "thermal_pressure-dag-028",
+      "arrival_time": 68,
+      "priority": 7,
+      "latency_class": "interactive",
+      "task_type": "npu_infer",
+      "size": 21.391,
+      "bandwidth_demand": 1.232,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 8,
+        "gpu": 5,
+        "npu": 3
+      },
+      "power_draw": {
+        "cpu": 4.617,
+        "gpu": 6.463,
+        "npu": 4.924
+      },
+      "deps": [
+        "thermal_pressure-task-039"
+      ]
+    },
+    {
+      "task_id": "thermal_pressure-task-041",
+      "dag_id": "thermal_pressure-dag-029",
+      "arrival_time": 69,
+      "priority": 4,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 83.186,
+      "bandwidth_demand": 4.104,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 39,
+        "gpu": 13,
+        "npu": 22
+      },
+      "power_draw": {
+        "cpu": 10.263,
+        "gpu": 16.745,
+        "npu": 12.964
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-042",
+      "dag_id": "thermal_pressure-dag-029",
+      "arrival_time": 71,
+      "priority": 3,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 86.085,
+      "bandwidth_demand": 4.423,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 38,
+        "gpu": 13,
+        "npu": 21
+      },
+      "power_draw": {
+        "cpu": 10.579,
+        "gpu": 17.26,
+        "npu": 13.363
+      },
+      "deps": [
+        "thermal_pressure-task-041"
+      ]
+    },
+    {
+      "task_id": "thermal_pressure-task-043",
+      "dag_id": "thermal_pressure-dag-029",
+      "arrival_time": 74,
+      "priority": 10,
+      "latency_class": "interactive",
+      "task_type": "npu_infer",
+      "size": 16.348,
+      "bandwidth_demand": 1.798,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 6,
+        "gpu": 4,
+        "npu": 3
+      },
+      "power_draw": {
+        "cpu": 4.746,
+        "gpu": 6.645,
+        "npu": 5.063
+      },
+      "deps": [
+        "thermal_pressure-task-042"
+      ]
+    },
+    {
+      "task_id": "thermal_pressure-task-044",
+      "dag_id": "thermal_pressure-dag-030",
+      "arrival_time": 75,
+      "priority": 5,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 79.303,
+      "bandwidth_demand": 3.507,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 41,
+        "gpu": 14,
+        "npu": 23
+      },
+      "power_draw": {
+        "cpu": 9.976,
+        "gpu": 16.277,
+        "npu": 12.602
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-045",
+      "dag_id": "thermal_pressure-dag-031",
+      "arrival_time": 76,
+      "priority": 10,
+      "latency_class": "interactive",
+      "task_type": "npu_infer",
+      "size": 31.151,
+      "bandwidth_demand": 1.288,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 10,
+        "gpu": 7,
+        "npu": 4
+      },
+      "power_draw": {
+        "cpu": 4.99,
+        "gpu": 6.986,
+        "npu": 5.323
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-046",
+      "dag_id": "thermal_pressure-dag-032",
+      "arrival_time": 78,
+      "priority": 5,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 91.73,
+      "bandwidth_demand": 2.926,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 47,
+        "gpu": 16,
+        "npu": 27
+      },
+      "power_draw": {
+        "cpu": 10.059,
+        "gpu": 16.411,
+        "npu": 12.706
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-047",
+      "dag_id": "thermal_pressure-dag-033",
+      "arrival_time": 82,
+      "priority": 6,
+      "latency_class": "interactive",
+      "task_type": "npu_infer",
+      "size": 19.016,
+      "bandwidth_demand": 0.888,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 7,
+        "gpu": 5,
+        "npu": 3
+      },
+      "power_draw": {
+        "cpu": 4.34,
+        "gpu": 6.076,
+        "npu": 4.629
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-048",
+      "dag_id": "thermal_pressure-dag-033",
+      "arrival_time": 83,
+      "priority": 8,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 28.55,
+      "bandwidth_demand": 1.909,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 5,
+        "gpu": 10,
+        "npu": 13
+      },
+      "power_draw": {
+        "cpu": 6.967,
+        "gpu": 9.406,
+        "npu": 8.012
+      },
+      "deps": [
+        "thermal_pressure-task-047"
+      ]
+    },
+    {
+      "task_id": "thermal_pressure-task-049",
+      "dag_id": "thermal_pressure-dag-033",
+      "arrival_time": 87,
+      "priority": 6,
+      "latency_class": "best_effort",
+      "task_type": "memory_bound",
+      "size": 35.081,
+      "bandwidth_demand": 3.679,
+      "checkpoint_interval": 0.33,
+      "migration_penalty": 4,
+      "service_time": {
+        "cpu": 8,
+        "gpu": 9,
+        "npu": 10
+      },
+      "power_draw": {
+        "cpu": 7.434,
+        "gpu": 9.086,
+        "npu": 7.847
+      },
+      "deps": [
+        "thermal_pressure-task-048",
+        "thermal_pressure-task-047"
+      ]
+    },
+    {
+      "task_id": "thermal_pressure-task-050",
+      "dag_id": "thermal_pressure-dag-034",
+      "arrival_time": 89,
+      "priority": 5,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 91.74,
+      "bandwidth_demand": 2.591,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 48,
+        "gpu": 16,
+        "npu": 27
+      },
+      "power_draw": {
+        "cpu": 10.019,
+        "gpu": 16.347,
+        "npu": 12.655
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-051",
+      "dag_id": "thermal_pressure-dag-035",
+      "arrival_time": 92,
+      "priority": 3,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 60.585,
+      "bandwidth_demand": 2.388,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 26,
+        "gpu": 9,
+        "npu": 15
+      },
+      "power_draw": {
+        "cpu": 8.208,
+        "gpu": 13.392,
+        "npu": 10.368
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-052",
+      "dag_id": "thermal_pressure-dag-036",
+      "arrival_time": 94,
+      "priority": 3,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 62.091,
+      "bandwidth_demand": 4.204,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 32,
+        "gpu": 11,
+        "npu": 18
+      },
+      "power_draw": {
+        "cpu": 9.306,
+        "gpu": 15.184,
+        "npu": 11.755
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-053",
+      "dag_id": "thermal_pressure-dag-037",
+      "arrival_time": 97,
+      "priority": 7,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 55.343,
+      "bandwidth_demand": 2.021,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 26,
+        "gpu": 9,
+        "npu": 15
+      },
+      "power_draw": {
+        "cpu": 7.684,
+        "gpu": 12.536,
+        "npu": 9.706
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-054",
+      "dag_id": "thermal_pressure-dag-038",
+      "arrival_time": 99,
+      "priority": 8,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 86.546,
+      "bandwidth_demand": 2.204,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 42,
+        "gpu": 14,
+        "npu": 24
+      },
+      "power_draw": {
+        "cpu": 9.576,
+        "gpu": 15.624,
+        "npu": 12.096
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-055",
+      "dag_id": "thermal_pressure-dag-039",
+      "arrival_time": 100,
+      "priority": 6,
+      "latency_class": "interactive",
+      "task_type": "npu_infer",
+      "size": 22.611,
+      "bandwidth_demand": 1.546,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 8,
+        "gpu": 6,
+        "npu": 4
+      },
+      "power_draw": {
+        "cpu": 4.436,
+        "gpu": 6.211,
+        "npu": 4.732
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-056",
+      "dag_id": "thermal_pressure-dag-040",
+      "arrival_time": 104,
+      "priority": 3,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 71.298,
+      "bandwidth_demand": 2.135,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 31,
+        "gpu": 10,
+        "npu": 17
+      },
+      "power_draw": {
+        "cpu": 8.449,
+        "gpu": 13.785,
+        "npu": 10.672
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-057",
+      "dag_id": "thermal_pressure-dag-041",
+      "arrival_time": 105,
+      "priority": 4,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 79.255,
+      "bandwidth_demand": 3.332,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 40,
+        "gpu": 13,
+        "npu": 22
+      },
+      "power_draw": {
+        "cpu": 9.912,
+        "gpu": 16.172,
+        "npu": 12.521
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-058",
+      "dag_id": "thermal_pressure-dag-042",
+      "arrival_time": 109,
+      "priority": 8,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 78.268,
+      "bandwidth_demand": 3.65,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 39,
+        "gpu": 13,
+        "npu": 22
+      },
+      "power_draw": {
+        "cpu": 10.054,
+        "gpu": 16.404,
+        "npu": 12.7
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-059",
+      "dag_id": "thermal_pressure-dag-042",
+      "arrival_time": 110,
+      "priority": 8,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 59.049,
+      "bandwidth_demand": 2.572,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 26,
+        "gpu": 9,
+        "npu": 15
+      },
+      "power_draw": {
+        "cpu": 8.319,
+        "gpu": 13.572,
+        "npu": 10.508
+      },
+      "deps": [
+        "thermal_pressure-task-058"
+      ]
+    },
+    {
+      "task_id": "thermal_pressure-task-060",
+      "dag_id": "thermal_pressure-dag-042",
+      "arrival_time": 112,
+      "priority": 8,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 25.216,
+      "bandwidth_demand": 2.379,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 5,
+        "gpu": 9,
+        "npu": 12
+      },
+      "power_draw": {
+        "cpu": 7.164,
+        "gpu": 9.672,
+        "npu": 8.239
+      },
+      "deps": [
+        "thermal_pressure-task-059"
+      ]
+    },
+    {
+      "task_id": "thermal_pressure-task-061",
+      "dag_id": "thermal_pressure-dag-043",
+      "arrival_time": 113,
+      "priority": 4,
+      "latency_class": "best_effort",
+      "task_type": "memory_bound",
+      "size": 45.236,
+      "bandwidth_demand": 5.107,
+      "checkpoint_interval": 0.33,
+      "migration_penalty": 4,
+      "service_time": {
+        "cpu": 10,
+        "gpu": 11,
+        "npu": 12
+      },
+      "power_draw": {
+        "cpu": 8.772,
+        "gpu": 10.721,
+        "npu": 9.259
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-062",
+      "dag_id": "thermal_pressure-dag-044",
+      "arrival_time": 117,
+      "priority": 9,
+      "latency_class": "interactive",
+      "task_type": "npu_infer",
+      "size": 22.227,
+      "bandwidth_demand": 1.189,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 8,
+        "gpu": 5,
+        "npu": 3
+      },
+      "power_draw": {
+        "cpu": 4.41,
+        "gpu": 6.175,
+        "npu": 4.705
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-063",
+      "dag_id": "thermal_pressure-dag-044",
+      "arrival_time": 120,
+      "priority": 10,
+      "latency_class": "interactive",
+      "task_type": "npu_infer",
+      "size": 28.941,
+      "bandwidth_demand": 1.68,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 10,
+        "gpu": 7,
+        "npu": 4
+      },
+      "power_draw": {
+        "cpu": 4.905,
+        "gpu": 6.867,
+        "npu": 5.232
+      },
+      "deps": [
+        "thermal_pressure-task-062"
+      ]
+    },
+    {
+      "task_id": "thermal_pressure-task-064",
+      "dag_id": "thermal_pressure-dag-044",
+      "arrival_time": 123,
+      "priority": 9,
+      "latency_class": "interactive",
+      "task_type": "npu_infer",
+      "size": 21.726,
+      "bandwidth_demand": 1.811,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 8,
+        "gpu": 6,
+        "npu": 3
+      },
+      "power_draw": {
+        "cpu": 4.785,
+        "gpu": 6.699,
+        "npu": 5.104
+      },
+      "deps": [
+        "thermal_pressure-task-063"
+      ]
+    },
+    {
+      "task_id": "thermal_pressure-task-065",
+      "dag_id": "thermal_pressure-dag-044",
+      "arrival_time": 124,
+      "priority": 10,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 36.692,
+      "bandwidth_demand": 1.219,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 8,
+        "gpu": 14,
+        "npu": 18
+      },
+      "power_draw": {
+        "cpu": 6.711,
+        "gpu": 9.06,
+        "npu": 7.718
+      },
+      "deps": [
+        "thermal_pressure-task-064",
+        "thermal_pressure-task-063"
+      ]
+    },
+    {
+      "task_id": "thermal_pressure-task-066",
+      "dag_id": "thermal_pressure-dag-044",
+      "arrival_time": 125,
+      "priority": 4,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 89.131,
+      "bandwidth_demand": 2.208,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 45,
+        "gpu": 15,
+        "npu": 25
+      },
+      "power_draw": {
+        "cpu": 9.728,
+        "gpu": 15.872,
+        "npu": 12.288
+      },
+      "deps": [
+        "thermal_pressure-task-065"
+      ]
+    },
+    {
+      "task_id": "thermal_pressure-task-067",
+      "dag_id": "thermal_pressure-dag-045",
+      "arrival_time": 126,
+      "priority": 6,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 89.595,
+      "bandwidth_demand": 2.397,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 43,
+        "gpu": 14,
+        "npu": 24
+      },
+      "power_draw": {
+        "cpu": 9.931,
+        "gpu": 16.204,
+        "npu": 12.545
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-068",
+      "dag_id": "thermal_pressure-dag-046",
+      "arrival_time": 128,
+      "priority": 4,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 48.446,
+      "bandwidth_demand": 3.557,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 23,
+        "gpu": 8,
+        "npu": 13
+      },
+      "power_draw": {
+        "cpu": 8.714,
+        "gpu": 14.218,
+        "npu": 11.007
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-069",
+      "dag_id": "thermal_pressure-dag-047",
+      "arrival_time": 133,
+      "priority": 3,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 77.687,
+      "bandwidth_demand": 2.02,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 35,
+        "gpu": 12,
+        "npu": 20
+      },
+      "power_draw": {
+        "cpu": 9.056,
+        "gpu": 14.775,
+        "npu": 11.439
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-070",
+      "dag_id": "thermal_pressure-dag-048",
+      "arrival_time": 136,
+      "priority": 6,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 70.074,
+      "bandwidth_demand": 4.059,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 31,
+        "gpu": 10,
+        "npu": 18
+      },
+      "power_draw": {
+        "cpu": 9.725,
+        "gpu": 15.867,
+        "npu": 12.284
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-071",
+      "dag_id": "thermal_pressure-dag-049",
+      "arrival_time": 137,
+      "priority": 6,
+      "latency_class": "best_effort",
+      "task_type": "memory_bound",
+      "size": 51.401,
+      "bandwidth_demand": 4.887,
+      "checkpoint_interval": 0.33,
+      "migration_penalty": 4,
+      "service_time": {
+        "cpu": 12,
+        "gpu": 14,
+        "npu": 15
+      },
+      "power_draw": {
+        "cpu": 8.942,
+        "gpu": 10.929,
+        "npu": 9.438
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-072",
+      "dag_id": "thermal_pressure-dag-050",
+      "arrival_time": 138,
+      "priority": 5,
+      "latency_class": "best_effort",
+      "task_type": "memory_bound",
+      "size": 38.961,
+      "bandwidth_demand": 4.91,
+      "checkpoint_interval": 0.33,
+      "migration_penalty": 4,
+      "service_time": {
+        "cpu": 9,
+        "gpu": 10,
+        "npu": 12
+      },
+      "power_draw": {
+        "cpu": 8.396,
+        "gpu": 10.262,
+        "npu": 8.863
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-073",
+      "dag_id": "thermal_pressure-dag-051",
+      "arrival_time": 141,
+      "priority": 7,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 22.777,
+      "bandwidth_demand": 1.351,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 5,
+        "gpu": 9,
+        "npu": 11
+      },
+      "power_draw": {
+        "cpu": 5.869,
+        "gpu": 7.924,
+        "npu": 6.75
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-074",
+      "dag_id": "thermal_pressure-dag-052",
+      "arrival_time": 143,
+      "priority": 7,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 58.136,
+      "bandwidth_demand": 2.452,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 29,
+        "gpu": 10,
+        "npu": 16
+      },
+      "power_draw": {
+        "cpu": 8.165,
+        "gpu": 13.321,
+        "npu": 10.313
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-075",
+      "dag_id": "thermal_pressure-dag-052",
+      "arrival_time": 145,
+      "priority": 6,
+      "latency_class": "interactive",
+      "task_type": "npu_infer",
+      "size": 23.296,
+      "bandwidth_demand": 1.869,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 8,
+        "gpu": 6,
+        "npu": 3
+      },
+      "power_draw": {
+        "cpu": 4.669,
+        "gpu": 6.537,
+        "npu": 4.981
+      },
+      "deps": [
+        "thermal_pressure-task-074"
+      ]
+    },
+    {
+      "task_id": "thermal_pressure-task-076",
+      "dag_id": "thermal_pressure-dag-052",
+      "arrival_time": 150,
+      "priority": 7,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 36.976,
+      "bandwidth_demand": 1.068,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 8,
+        "gpu": 14,
+        "npu": 18
+      },
+      "power_draw": {
+        "cpu": 6.389,
+        "gpu": 8.625,
+        "npu": 7.347
+      },
+      "deps": [
+        "thermal_pressure-task-075",
+        "thermal_pressure-task-074"
+      ]
+    },
+    {
+      "task_id": "thermal_pressure-task-077",
+      "dag_id": "thermal_pressure-dag-052",
+      "arrival_time": 151,
+      "priority": 7,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 34.902,
+      "bandwidth_demand": 1.324,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 7,
+        "gpu": 12,
+        "npu": 16
+      },
+      "power_draw": {
+        "cpu": 6.907,
+        "gpu": 9.325,
+        "npu": 7.943
+      },
+      "deps": [
+        "thermal_pressure-task-076"
+      ]
+    },
+    {
+      "task_id": "thermal_pressure-task-078",
+      "dag_id": "thermal_pressure-dag-053",
+      "arrival_time": 154,
+      "priority": 9,
+      "latency_class": "interactive",
+      "task_type": "npu_infer",
+      "size": 24.586,
+      "bandwidth_demand": 1.484,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 9,
+        "gpu": 7,
+        "npu": 4
+      },
+      "power_draw": {
+        "cpu": 4.674,
+        "gpu": 6.543,
+        "npu": 4.985
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-079",
+      "dag_id": "thermal_pressure-dag-053",
+      "arrival_time": 155,
+      "priority": 6,
+      "latency_class": "interactive",
+      "task_type": "npu_infer",
+      "size": 27.998,
+      "bandwidth_demand": 1.537,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 10,
+        "gpu": 7,
+        "npu": 4
+      },
+      "power_draw": {
+        "cpu": 4.754,
+        "gpu": 6.656,
+        "npu": 5.071
+      },
+      "deps": [
+        "thermal_pressure-task-078"
+      ]
+    },
+    {
+      "task_id": "thermal_pressure-task-080",
+      "dag_id": "thermal_pressure-dag-053",
+      "arrival_time": 156,
+      "priority": 9,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 31.021,
+      "bandwidth_demand": 1.72,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 6,
+        "gpu": 11,
+        "npu": 14
+      },
+      "power_draw": {
+        "cpu": 6.809,
+        "gpu": 9.193,
+        "npu": 7.831
+      },
+      "deps": [
+        "thermal_pressure-task-079"
+      ]
+    },
+    {
+      "task_id": "thermal_pressure-task-081",
+      "dag_id": "thermal_pressure-dag-053",
+      "arrival_time": 158,
+      "priority": 7,
+      "latency_class": "interactive",
+      "task_type": "npu_infer",
+      "size": 28.74,
+      "bandwidth_demand": 1.606,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 10,
+        "gpu": 7,
+        "npu": 4
+      },
+      "power_draw": {
+        "cpu": 4.845,
+        "gpu": 6.783,
+        "npu": 5.168
+      },
+      "deps": [
+        "thermal_pressure-task-080"
+      ]
+    },
+    {
+      "task_id": "thermal_pressure-task-082",
+      "dag_id": "thermal_pressure-dag-053",
+      "arrival_time": 160,
+      "priority": 8,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 52.407,
+      "bandwidth_demand": 3.665,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 28,
+        "gpu": 9,
+        "npu": 16
+      },
+      "power_draw": {
+        "cpu": 8.855,
+        "gpu": 14.448,
+        "npu": 11.186
+      },
+      "deps": [
+        "thermal_pressure-task-081"
+      ]
+    },
+    {
+      "task_id": "thermal_pressure-task-083",
+      "dag_id": "thermal_pressure-dag-053",
+      "arrival_time": 161,
+      "priority": 7,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 33.952,
+      "bandwidth_demand": 1.171,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 6,
+        "gpu": 11,
+        "npu": 15
+      },
+      "power_draw": {
+        "cpu": 6.641,
+        "gpu": 8.965,
+        "npu": 7.637
+      },
+      "deps": [
+        "thermal_pressure-task-082"
+      ]
+    },
+    {
+      "task_id": "thermal_pressure-task-084",
+      "dag_id": "thermal_pressure-dag-054",
+      "arrival_time": 162,
+      "priority": 9,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 37.829,
+      "bandwidth_demand": 1.88,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 8,
+        "gpu": 14,
+        "npu": 18
+      },
+      "power_draw": {
+        "cpu": 7.376,
+        "gpu": 9.957,
+        "npu": 8.482
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-085",
+      "dag_id": "thermal_pressure-dag-055",
+      "arrival_time": 165,
+      "priority": 8,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 87.162,
+      "bandwidth_demand": 3.788,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 41,
+        "gpu": 14,
+        "npu": 23
+      },
+      "power_draw": {
+        "cpu": 10.389,
+        "gpu": 16.95,
+        "npu": 13.123
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-086",
+      "dag_id": "thermal_pressure-dag-055",
+      "arrival_time": 167,
+      "priority": 5,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 82.176,
+      "bandwidth_demand": 2.136,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 38,
+        "gpu": 13,
+        "npu": 21
+      },
+      "power_draw": {
+        "cpu": 9.334,
+        "gpu": 15.229,
+        "npu": 11.79
+      },
+      "deps": [
+        "thermal_pressure-task-085"
+      ]
+    },
+    {
+      "task_id": "thermal_pressure-task-087",
+      "dag_id": "thermal_pressure-dag-055",
+      "arrival_time": 170,
+      "priority": 6,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 80.564,
+      "bandwidth_demand": 2.541,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 35,
+        "gpu": 12,
+        "npu": 20
+      },
+      "power_draw": {
+        "cpu": 9.391,
+        "gpu": 15.321,
+        "npu": 11.862
+      },
+      "deps": [
+        "thermal_pressure-task-086"
+      ]
+    },
+    {
+      "task_id": "thermal_pressure-task-088",
+      "dag_id": "thermal_pressure-dag-055",
+      "arrival_time": 171,
+      "priority": 10,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 35.036,
+      "bandwidth_demand": 1.839,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 6,
+        "gpu": 12,
+        "npu": 15
+      },
+      "power_draw": {
+        "cpu": 6.91,
+        "gpu": 9.329,
+        "npu": 7.947
+      },
+      "deps": [
+        "thermal_pressure-task-087",
+        "thermal_pressure-task-086"
+      ]
+    },
+    {
+      "task_id": "thermal_pressure-task-089",
+      "dag_id": "thermal_pressure-dag-056",
+      "arrival_time": 173,
+      "priority": 9,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 29.536,
+      "bandwidth_demand": 1.215,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 6,
+        "gpu": 10,
+        "npu": 13
+      },
+      "power_draw": {
+        "cpu": 6.134,
+        "gpu": 8.281,
+        "npu": 7.054
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-090",
+      "dag_id": "thermal_pressure-dag-056",
+      "arrival_time": 174,
+      "priority": 2,
+      "latency_class": "best_effort",
+      "task_type": "memory_bound",
+      "size": 50.777,
+      "bandwidth_demand": 3.58,
+      "checkpoint_interval": 0.33,
+      "migration_penalty": 4,
+      "service_time": {
+        "cpu": 11,
+        "gpu": 12,
+        "npu": 14
+      },
+      "power_draw": {
+        "cpu": 8.374,
+        "gpu": 10.234,
+        "npu": 8.839
+      },
+      "deps": [
+        "thermal_pressure-task-089"
+      ]
+    },
+    {
+      "task_id": "thermal_pressure-task-091",
+      "dag_id": "thermal_pressure-dag-056",
+      "arrival_time": 179,
+      "priority": 8,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 67.943,
+      "bandwidth_demand": 2.152,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 32,
+        "gpu": 11,
+        "npu": 18
+      },
+      "power_draw": {
+        "cpu": 8.401,
+        "gpu": 13.706,
+        "npu": 10.611
+      },
+      "deps": [
+        "thermal_pressure-task-090"
+      ]
+    },
+    {
+      "task_id": "thermal_pressure-task-092",
+      "dag_id": "thermal_pressure-dag-057",
+      "arrival_time": 180,
+      "priority": 3,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 49.59,
+      "bandwidth_demand": 2.718,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 25,
+        "gpu": 8,
+        "npu": 14
+      },
+      "power_draw": {
+        "cpu": 7.962,
+        "gpu": 12.991,
+        "npu": 10.057
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-093",
+      "dag_id": "thermal_pressure-dag-057",
+      "arrival_time": 182,
+      "priority": 5,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 83.25,
+      "bandwidth_demand": 2.294,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 38,
+        "gpu": 13,
+        "npu": 21
+      },
+      "power_draw": {
+        "cpu": 9.418,
+        "gpu": 15.367,
+        "npu": 11.897
+      },
+      "deps": [
+        "thermal_pressure-task-092"
+      ]
+    },
+    {
+      "task_id": "thermal_pressure-task-094",
+      "dag_id": "thermal_pressure-dag-057",
+      "arrival_time": 183,
+      "priority": 7,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 51.884,
+      "bandwidth_demand": 3.25,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 23,
+        "gpu": 8,
+        "npu": 13
+      },
+      "power_draw": {
+        "cpu": 8.568,
+        "gpu": 13.979,
+        "npu": 10.822
+      },
+      "deps": [
+        "thermal_pressure-task-093"
+      ]
+    },
+    {
+      "task_id": "thermal_pressure-task-095",
+      "dag_id": "thermal_pressure-dag-057",
+      "arrival_time": 187,
+      "priority": 6,
+      "latency_class": "best_effort",
+      "task_type": "memory_bound",
+      "size": 43.641,
+      "bandwidth_demand": 4.824,
+      "checkpoint_interval": 0.33,
+      "migration_penalty": 4,
+      "service_time": {
+        "cpu": 11,
+        "gpu": 12,
+        "npu": 14
+      },
+      "power_draw": {
+        "cpu": 8.452,
+        "gpu": 10.33,
+        "npu": 8.921
+      },
+      "deps": [
+        "thermal_pressure-task-094",
+        "thermal_pressure-task-093"
+      ]
+    },
+    {
+      "task_id": "thermal_pressure-task-096",
+      "dag_id": "thermal_pressure-dag-058",
+      "arrival_time": 190,
+      "priority": 9,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 23.341,
+      "bandwidth_demand": 1.419,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 5,
+        "gpu": 8,
+        "npu": 11
+      },
+      "power_draw": {
+        "cpu": 6.086,
+        "gpu": 8.217,
+        "npu": 6.999
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-097",
+      "dag_id": "thermal_pressure-dag-059",
+      "arrival_time": 194,
+      "priority": 8,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 33.381,
+      "bandwidth_demand": 1.075,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 7,
+        "gpu": 13,
+        "npu": 17
+      },
+      "power_draw": {
+        "cpu": 6.452,
+        "gpu": 8.71,
+        "npu": 7.419
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-098",
+      "dag_id": "thermal_pressure-dag-059",
+      "arrival_time": 196,
+      "priority": 5,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 67.818,
+      "bandwidth_demand": 3.162,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 30,
+        "gpu": 10,
+        "npu": 17
+      },
+      "power_draw": {
+        "cpu": 8.873,
+        "gpu": 14.477,
+        "npu": 11.208
+      },
+      "deps": [
+        "thermal_pressure-task-097"
+      ]
+    },
+    {
+      "task_id": "thermal_pressure-task-099",
+      "dag_id": "thermal_pressure-dag-059",
+      "arrival_time": 198,
+      "priority": 8,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 84.31,
+      "bandwidth_demand": 3.434,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 43,
+        "gpu": 14,
+        "npu": 24
+      },
+      "power_draw": {
+        "cpu": 10.29,
+        "gpu": 16.789,
+        "npu": 12.998
+      },
+      "deps": [
+        "thermal_pressure-task-098"
+      ]
+    },
+    {
+      "task_id": "thermal_pressure-task-100",
+      "dag_id": "thermal_pressure-dag-059",
+      "arrival_time": 199,
+      "priority": 9,
+      "latency_class": "interactive",
+      "task_type": "npu_infer",
+      "size": 23.777,
+      "bandwidth_demand": 0.846,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 8,
+        "gpu": 6,
+        "npu": 3
+      },
+      "power_draw": {
+        "cpu": 4.26,
+        "gpu": 5.963,
+        "npu": 4.543
+      },
+      "deps": [
+        "thermal_pressure-task-099",
+        "thermal_pressure-task-098"
+      ]
+    },
+    {
+      "task_id": "thermal_pressure-task-101",
+      "dag_id": "thermal_pressure-dag-059",
+      "arrival_time": 200,
+      "priority": 7,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 81.35,
+      "bandwidth_demand": 4.259,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 40,
+        "gpu": 13,
+        "npu": 23
+      },
+      "power_draw": {
+        "cpu": 10.533,
+        "gpu": 17.186,
+        "npu": 13.305
+      },
+      "deps": [
+        "thermal_pressure-task-100"
+      ]
+    },
+    {
+      "task_id": "thermal_pressure-task-102",
+      "dag_id": "thermal_pressure-dag-060",
+      "arrival_time": 203,
+      "priority": 7,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 48.836,
+      "bandwidth_demand": 2.838,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 23,
+        "gpu": 8,
+        "npu": 13
+      },
+      "power_draw": {
+        "cpu": 7.94,
+        "gpu": 12.955,
+        "npu": 10.029
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-103",
+      "dag_id": "thermal_pressure-dag-061",
+      "arrival_time": 204,
+      "priority": 2,
+      "latency_class": "best_effort",
+      "task_type": "memory_bound",
+      "size": 47.589,
+      "bandwidth_demand": 5.009,
+      "checkpoint_interval": 0.33,
+      "migration_penalty": 4,
+      "service_time": {
+        "cpu": 11,
+        "gpu": 12,
+        "npu": 14
+      },
+      "power_draw": {
+        "cpu": 8.937,
+        "gpu": 10.923,
+        "npu": 9.434
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-104",
+      "dag_id": "thermal_pressure-dag-062",
+      "arrival_time": 205,
+      "priority": 7,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 66.587,
+      "bandwidth_demand": 2.427,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 29,
+        "gpu": 10,
+        "npu": 16
+      },
+      "power_draw": {
+        "cpu": 8.379,
+        "gpu": 13.671,
+        "npu": 10.584
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-105",
+      "dag_id": "thermal_pressure-dag-063",
+      "arrival_time": 207,
+      "priority": 3,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 89.888,
+      "bandwidth_demand": 2.955,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 41,
+        "gpu": 14,
+        "npu": 23
+      },
+      "power_draw": {
+        "cpu": 10.2,
+        "gpu": 16.641,
+        "npu": 12.884
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-106",
+      "dag_id": "thermal_pressure-dag-064",
+      "arrival_time": 211,
+      "priority": 4,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 63.335,
+      "bandwidth_demand": 3.442,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 29,
+        "gpu": 10,
+        "npu": 17
+      },
+      "power_draw": {
+        "cpu": 9.13,
+        "gpu": 14.896,
+        "npu": 11.533
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-107",
+      "dag_id": "thermal_pressure-dag-065",
+      "arrival_time": 213,
+      "priority": 2,
+      "latency_class": "best_effort",
+      "task_type": "memory_bound",
+      "size": 35.738,
+      "bandwidth_demand": 4.985,
+      "checkpoint_interval": 0.33,
+      "migration_penalty": 4,
+      "service_time": {
+        "cpu": 8,
+        "gpu": 9,
+        "npu": 10
+      },
+      "power_draw": {
+        "cpu": 8.081,
+        "gpu": 9.876,
+        "npu": 8.529
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-108",
+      "dag_id": "thermal_pressure-dag-066",
+      "arrival_time": 215,
+      "priority": 5,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 63.683,
+      "bandwidth_demand": 4.187,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 30,
+        "gpu": 10,
+        "npu": 17
+      },
+      "power_draw": {
+        "cpu": 9.724,
+        "gpu": 15.866,
+        "npu": 12.283
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-109",
+      "dag_id": "thermal_pressure-dag-067",
+      "arrival_time": 216,
+      "priority": 3,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 69.235,
+      "bandwidth_demand": 2.034,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 35,
+        "gpu": 12,
+        "npu": 20
+      },
+      "power_draw": {
+        "cpu": 8.565,
+        "gpu": 13.974,
+        "npu": 10.819
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-110",
+      "dag_id": "thermal_pressure-dag-068",
+      "arrival_time": 219,
+      "priority": 8,
+      "latency_class": "interactive",
+      "task_type": "npu_infer",
+      "size": 26.711,
+      "bandwidth_demand": 0.905,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 9,
+        "gpu": 7,
+        "npu": 4
+      },
+      "power_draw": {
+        "cpu": 4.453,
+        "gpu": 6.234,
+        "npu": 4.75
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-111",
+      "dag_id": "thermal_pressure-dag-069",
+      "arrival_time": 222,
+      "priority": 4,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 55.378,
+      "bandwidth_demand": 2.936,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 27,
+        "gpu": 9,
+        "npu": 15
+      },
+      "power_draw": {
+        "cpu": 8.303,
+        "gpu": 13.547,
+        "npu": 10.488
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-112",
+      "dag_id": "thermal_pressure-dag-070",
+      "arrival_time": 225,
+      "priority": 6,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 50.98,
+      "bandwidth_demand": 2.178,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 27,
+        "gpu": 9,
+        "npu": 15
+      },
+      "power_draw": {
+        "cpu": 7.75,
+        "gpu": 12.645,
+        "npu": 9.789
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-113",
+      "dag_id": "thermal_pressure-dag-071",
+      "arrival_time": 226,
+      "priority": 8,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 40.05,
+      "bandwidth_demand": 2.187,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 8,
+        "gpu": 14,
+        "npu": 19
+      },
+      "power_draw": {
+        "cpu": 7.797,
+        "gpu": 10.526,
+        "npu": 8.966
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-114",
+      "dag_id": "thermal_pressure-dag-072",
+      "arrival_time": 230,
+      "priority": 9,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 35.605,
+      "bandwidth_demand": 1.85,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 7,
+        "gpu": 12,
+        "npu": 16
+      },
+      "power_draw": {
+        "cpu": 6.927,
+        "gpu": 9.351,
+        "npu": 7.966
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-115",
+      "dag_id": "thermal_pressure-dag-073",
+      "arrival_time": 233,
+      "priority": 7,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 30.81,
+      "bandwidth_demand": 1.96,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 6,
+        "gpu": 10,
+        "npu": 14
+      },
+      "power_draw": {
+        "cpu": 7.022,
+        "gpu": 9.48,
+        "npu": 8.075
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-116",
+      "dag_id": "thermal_pressure-dag-074",
+      "arrival_time": 236,
+      "priority": 2,
+      "latency_class": "best_effort",
+      "task_type": "memory_bound",
+      "size": 49.553,
+      "bandwidth_demand": 4.364,
+      "checkpoint_interval": 0.33,
+      "migration_penalty": 4,
+      "service_time": {
+        "cpu": 12,
+        "gpu": 13,
+        "npu": 15
+      },
+      "power_draw": {
+        "cpu": 8.519,
+        "gpu": 10.412,
+        "npu": 8.993
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-117",
+      "dag_id": "thermal_pressure-dag-075",
+      "arrival_time": 237,
+      "priority": 10,
+      "latency_class": "interactive",
+      "task_type": "npu_infer",
+      "size": 23.982,
+      "bandwidth_demand": 1.776,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 8,
+        "gpu": 6,
+        "npu": 3
+      },
+      "power_draw": {
+        "cpu": 4.614,
+        "gpu": 6.46,
+        "npu": 4.922
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-118",
+      "dag_id": "thermal_pressure-dag-076",
+      "arrival_time": 238,
+      "priority": 7,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 77.393,
+      "bandwidth_demand": 3.799,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 36,
+        "gpu": 12,
+        "npu": 20
+      },
+      "power_draw": {
+        "cpu": 9.731,
+        "gpu": 15.877,
+        "npu": 12.292
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-119",
+      "dag_id": "thermal_pressure-dag-077",
+      "arrival_time": 239,
+      "priority": 7,
+      "latency_class": "interactive",
+      "task_type": "npu_infer",
+      "size": 27.314,
+      "bandwidth_demand": 0.875,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 9,
+        "gpu": 6,
+        "npu": 4
+      },
+      "power_draw": {
+        "cpu": 4.315,
+        "gpu": 6.041,
+        "npu": 4.603
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-120",
+      "dag_id": "thermal_pressure-dag-078",
+      "arrival_time": 242,
+      "priority": 6,
+      "latency_class": "interactive",
+      "task_type": "npu_infer",
+      "size": 29.905,
+      "bandwidth_demand": 1.885,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 11,
+        "gpu": 8,
+        "npu": 5
+      },
+      "power_draw": {
+        "cpu": 5.124,
+        "gpu": 7.174,
+        "npu": 5.466
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-121",
+      "dag_id": "thermal_pressure-dag-079",
+      "arrival_time": 245,
+      "priority": 6,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 80.869,
+      "bandwidth_demand": 2.825,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 38,
+        "gpu": 13,
+        "npu": 21
+      },
+      "power_draw": {
+        "cpu": 9.486,
+        "gpu": 15.478,
+        "npu": 11.983
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-122",
+      "dag_id": "thermal_pressure-dag-080",
+      "arrival_time": 247,
+      "priority": 3,
+      "latency_class": "best_effort",
+      "task_type": "memory_bound",
+      "size": 43.061,
+      "bandwidth_demand": 4.254,
+      "checkpoint_interval": 0.33,
+      "migration_penalty": 4,
+      "service_time": {
+        "cpu": 9,
+        "gpu": 11,
+        "npu": 12
+      },
+      "power_draw": {
+        "cpu": 8.217,
+        "gpu": 10.043,
+        "npu": 8.673
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-123",
+      "dag_id": "thermal_pressure-dag-081",
+      "arrival_time": 248,
+      "priority": 8,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 71.416,
+      "bandwidth_demand": 3.756,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 33,
+        "gpu": 11,
+        "npu": 19
+      },
+      "power_draw": {
+        "cpu": 9.777,
+        "gpu": 15.952,
+        "npu": 12.35
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-124",
+      "dag_id": "thermal_pressure-dag-082",
+      "arrival_time": 251,
+      "priority": 5,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 81.209,
+      "bandwidth_demand": 2.71,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 37,
+        "gpu": 13,
+        "npu": 21
+      },
+      "power_draw": {
+        "cpu": 9.451,
+        "gpu": 15.421,
+        "npu": 11.939
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-125",
+      "dag_id": "thermal_pressure-dag-083",
+      "arrival_time": 252,
+      "priority": 4,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 68.526,
+      "bandwidth_demand": 3.408,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 30,
+        "gpu": 10,
+        "npu": 17
+      },
+      "power_draw": {
+        "cpu": 9.049,
+        "gpu": 14.765,
+        "npu": 11.431
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-126",
+      "dag_id": "thermal_pressure-dag-084",
+      "arrival_time": 256,
+      "priority": 4,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 50.722,
+      "bandwidth_demand": 2.524,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 23,
+        "gpu": 8,
+        "npu": 13
+      },
+      "power_draw": {
+        "cpu": 7.959,
+        "gpu": 12.985,
+        "npu": 10.053
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-127",
+      "dag_id": "thermal_pressure-dag-084",
+      "arrival_time": 257,
+      "priority": 3,
+      "latency_class": "best_effort",
+      "task_type": "memory_bound",
+      "size": 48.703,
+      "bandwidth_demand": 4.119,
+      "checkpoint_interval": 0.33,
+      "migration_penalty": 4,
+      "service_time": {
+        "cpu": 11,
+        "gpu": 12,
+        "npu": 14
+      },
+      "power_draw": {
+        "cpu": 8.56,
+        "gpu": 10.462,
+        "npu": 9.036
+      },
+      "deps": [
+        "thermal_pressure-task-126"
+      ]
+    },
+    {
+      "task_id": "thermal_pressure-task-128",
+      "dag_id": "thermal_pressure-dag-084",
+      "arrival_time": 259,
+      "priority": 7,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 65.08,
+      "bandwidth_demand": 2.047,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 30,
+        "gpu": 10,
+        "npu": 17
+      },
+      "power_draw": {
+        "cpu": 8.321,
+        "gpu": 13.577,
+        "npu": 10.511
+      },
+      "deps": [
+        "thermal_pressure-task-127"
+      ]
+    },
+    {
+      "task_id": "thermal_pressure-task-129",
+      "dag_id": "thermal_pressure-dag-084",
+      "arrival_time": 263,
+      "priority": 5,
+      "latency_class": "best_effort",
+      "task_type": "memory_bound",
+      "size": 44.923,
+      "bandwidth_demand": 4.72,
+      "checkpoint_interval": 0.33,
+      "migration_penalty": 4,
+      "service_time": {
+        "cpu": 10,
+        "gpu": 12,
+        "npu": 13
+      },
+      "power_draw": {
+        "cpu": 8.742,
+        "gpu": 10.685,
+        "npu": 9.228
+      },
+      "deps": [
+        "thermal_pressure-task-128",
+        "thermal_pressure-task-127"
+      ]
+    },
+    {
+      "task_id": "thermal_pressure-task-130",
+      "dag_id": "thermal_pressure-dag-085",
+      "arrival_time": 264,
+      "priority": 8,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 30.688,
+      "bandwidth_demand": 1.859,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 6,
+        "gpu": 11,
+        "npu": 14
+      },
+      "power_draw": {
+        "cpu": 6.782,
+        "gpu": 9.155,
+        "npu": 7.799
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-131",
+      "dag_id": "thermal_pressure-dag-086",
+      "arrival_time": 265,
+      "priority": 9,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 32.037,
+      "bandwidth_demand": 1.341,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 7,
+        "gpu": 13,
+        "npu": 16
+      },
+      "power_draw": {
+        "cpu": 6.265,
+        "gpu": 8.457,
+        "npu": 7.204
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-132",
+      "dag_id": "thermal_pressure-dag-087",
+      "arrival_time": 268,
+      "priority": 4,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 70.267,
+      "bandwidth_demand": 2.226,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 33,
+        "gpu": 11,
+        "npu": 19
+      },
+      "power_draw": {
+        "cpu": 8.765,
+        "gpu": 14.301,
+        "npu": 11.071
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-133",
+      "dag_id": "thermal_pressure-dag-088",
+      "arrival_time": 270,
+      "priority": 7,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 64.839,
+      "bandwidth_demand": 3.798,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 29,
+        "gpu": 10,
+        "npu": 16
+      },
+      "power_draw": {
+        "cpu": 9.308,
+        "gpu": 15.187,
+        "npu": 11.758
+      },
+      "deps": []
+    },
+    {
+      "task_id": "thermal_pressure-task-134",
+      "dag_id": "thermal_pressure-dag-089",
+      "arrival_time": 273,
+      "priority": 9,
+      "latency_class": "interactive",
+      "task_type": "npu_infer",
+      "size": 28.368,
+      "bandwidth_demand": 1.01,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 10,
+        "gpu": 7,
+        "npu": 4
+      },
+      "power_draw": {
+        "cpu": 4.685,
+        "gpu": 6.559,
+        "npu": 4.998
+      },
+      "deps": []
+    }
+  ]
+}

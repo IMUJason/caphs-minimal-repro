@@ -1,0 +1,372 @@
+{
+  "workload_id": "bursty_mixed_s303",
+  "family": "bursty_mixed",
+  "seed": 303,
+  "notes": "Real Apple M4 Pro hardware validation workload using chunked shared-memory GEMM tasks.",
+  "task_specs": [
+    {
+      "task_id": "T000",
+      "size": 768,
+      "total_chunks": 92,
+      "priority": 1,
+      "arrival_ms": 0.0,
+      "parents": [],
+      "family": "bursty_mixed",
+      "bytes_moved": 7077888.0,
+      "criticality": 0.25
+    },
+    {
+      "task_id": "T001",
+      "size": 2048,
+      "total_chunks": 96,
+      "priority": 5,
+      "arrival_ms": 9.065,
+      "parents": [],
+      "family": "bursty_mixed",
+      "bytes_moved": 50331648.0,
+      "criticality": 0.25
+    },
+    {
+      "task_id": "T002",
+      "size": 2048,
+      "total_chunks": 85,
+      "priority": 3,
+      "arrival_ms": 18.228,
+      "parents": [],
+      "family": "bursty_mixed",
+      "bytes_moved": 50331648.0,
+      "criticality": 0.5
+    },
+    {
+      "task_id": "T003",
+      "size": 1536,
+      "total_chunks": 88,
+      "priority": 4,
+      "arrival_ms": 24.479,
+      "parents": [
+        "T001"
+      ],
+      "family": "bursty_mixed",
+      "bytes_moved": 28311552.0,
+      "criticality": 0.0
+    },
+    {
+      "task_id": "T004",
+      "size": 768,
+      "total_chunks": 93,
+      "priority": 3,
+      "arrival_ms": 30.378,
+      "parents": [
+        "T000"
+      ],
+      "family": "bursty_mixed",
+      "bytes_moved": 7077888.0,
+      "criticality": 0.0
+    },
+    {
+      "task_id": "T005",
+      "size": 1536,
+      "total_chunks": 96,
+      "priority": 5,
+      "arrival_ms": 54.17,
+      "parents": [
+        "T002"
+      ],
+      "family": "bursty_mixed",
+      "bytes_moved": 28311552.0,
+      "criticality": 0.25
+    },
+    {
+      "task_id": "T006",
+      "size": 2048,
+      "total_chunks": 120,
+      "priority": 2,
+      "arrival_ms": 60.89,
+      "parents": [],
+      "family": "bursty_mixed",
+      "bytes_moved": 50331648.0,
+      "criticality": 0.5
+    },
+    {
+      "task_id": "T007",
+      "size": 768,
+      "total_chunks": 91,
+      "priority": 4,
+      "arrival_ms": 51.621,
+      "parents": [
+        "T006"
+      ],
+      "family": "bursty_mixed",
+      "bytes_moved": 7077888.0,
+      "criticality": 0.25
+    },
+    {
+      "task_id": "T008",
+      "size": 1536,
+      "total_chunks": 80,
+      "priority": 1,
+      "arrival_ms": 10.593,
+      "parents": [],
+      "family": "bursty_mixed",
+      "bytes_moved": 28311552.0,
+      "criticality": 0.0
+    },
+    {
+      "task_id": "T009",
+      "size": 768,
+      "total_chunks": 91,
+      "priority": 4,
+      "arrival_ms": 8.318,
+      "parents": [
+        "T005",
+        "T007"
+      ],
+      "family": "bursty_mixed",
+      "bytes_moved": 7077888.0,
+      "criticality": 0.0
+    },
+    {
+      "task_id": "T010",
+      "size": 1024,
+      "total_chunks": 110,
+      "priority": 4,
+      "arrival_ms": 14.203,
+      "parents": [],
+      "family": "bursty_mixed",
+      "bytes_moved": 12582912.0,
+      "criticality": 0.25
+    },
+    {
+      "task_id": "T011",
+      "size": 1024,
+      "total_chunks": 89,
+      "priority": 2,
+      "arrival_ms": 17.917,
+      "parents": [],
+      "family": "bursty_mixed",
+      "bytes_moved": 12582912.0,
+      "criticality": 0.0
+    },
+    {
+      "task_id": "T012",
+      "size": 1024,
+      "total_chunks": 98,
+      "priority": 5,
+      "arrival_ms": 13.866,
+      "parents": [],
+      "family": "bursty_mixed",
+      "bytes_moved": 12582912.0,
+      "criticality": 0.25
+    },
+    {
+      "task_id": "T013",
+      "size": 2048,
+      "total_chunks": 99,
+      "priority": 2,
+      "arrival_ms": 22.829,
+      "parents": [],
+      "family": "bursty_mixed",
+      "bytes_moved": 50331648.0,
+      "criticality": 0.0
+    },
+    {
+      "task_id": "T014",
+      "size": 2048,
+      "total_chunks": 84,
+      "priority": 1,
+      "arrival_ms": 14.666,
+      "parents": [],
+      "family": "bursty_mixed",
+      "bytes_moved": 50331648.0,
+      "criticality": 1.0
+    },
+    {
+      "task_id": "T015",
+      "size": 2048,
+      "total_chunks": 89,
+      "priority": 5,
+      "arrival_ms": 119.266,
+      "parents": [
+        "T014"
+      ],
+      "family": "bursty_mixed",
+      "bytes_moved": 50331648.0,
+      "criticality": 0.0
+    },
+    {
+      "task_id": "T016",
+      "size": 1536,
+      "total_chunks": 96,
+      "priority": 2,
+      "arrival_ms": 140.983,
+      "parents": [
+        "T012"
+      ],
+      "family": "bursty_mixed",
+      "bytes_moved": 28311552.0,
+      "criticality": 0.0
+    },
+    {
+      "task_id": "T017",
+      "size": 1024,
+      "total_chunks": 107,
+      "priority": 2,
+      "arrival_ms": 133.083,
+      "parents": [],
+      "family": "bursty_mixed",
+      "bytes_moved": 12582912.0,
+      "criticality": 0.5
+    },
+    {
+      "task_id": "T018",
+      "size": 2048,
+      "total_chunks": 97,
+      "priority": 5,
+      "arrival_ms": 164.413,
+      "parents": [],
+      "family": "bursty_mixed",
+      "bytes_moved": 50331648.0,
+      "criticality": 0.0
+    },
+    {
+      "task_id": "T019",
+      "size": 768,
+      "total_chunks": 112,
+      "priority": 1,
+      "arrival_ms": 150.137,
+      "parents": [
+        "T010"
+      ],
+      "family": "bursty_mixed",
+      "bytes_moved": 7077888.0,
+      "criticality": 0.0
+    },
+    {
+      "task_id": "T020",
+      "size": 1536,
+      "total_chunks": 80,
+      "priority": 5,
+      "arrival_ms": 28.683,
+      "parents": [],
+      "family": "bursty_mixed",
+      "bytes_moved": 28311552.0,
+      "criticality": 0.0
+    },
+    {
+      "task_id": "T021",
+      "size": 1536,
+      "total_chunks": 106,
+      "priority": 5,
+      "arrival_ms": 37.335,
+      "parents": [],
+      "family": "bursty_mixed",
+      "bytes_moved": 28311552.0,
+      "criticality": 1.0
+    },
+    {
+      "task_id": "T022",
+      "size": 2048,
+      "total_chunks": 96,
+      "priority": 4,
+      "arrival_ms": 34.539,
+      "parents": [
+        "T014",
+        "T021"
+      ],
+      "family": "bursty_mixed",
+      "bytes_moved": 50331648.0,
+      "criticality": 0.75
+    },
+    {
+      "task_id": "T023",
+      "size": 1536,
+      "total_chunks": 113,
+      "priority": 2,
+      "arrival_ms": 29.234,
+      "parents": [
+        "T007",
+        "T022"
+      ],
+      "family": "bursty_mixed",
+      "bytes_moved": 28311552.0,
+      "criticality": 0.0
+    },
+    {
+      "task_id": "T024",
+      "size": 1536,
+      "total_chunks": 83,
+      "priority": 1,
+      "arrival_ms": 34.153,
+      "parents": [
+        "T021"
+      ],
+      "family": "bursty_mixed",
+      "bytes_moved": 28311552.0,
+      "criticality": 0.0
+    },
+    {
+      "task_id": "T025",
+      "size": 1536,
+      "total_chunks": 91,
+      "priority": 4,
+      "arrival_ms": 44.075,
+      "parents": [
+        "T022"
+      ],
+      "family": "bursty_mixed",
+      "bytes_moved": 28311552.0,
+      "criticality": 0.5
+    },
+    {
+      "task_id": "T026",
+      "size": 768,
+      "total_chunks": 119,
+      "priority": 2,
+      "arrival_ms": 46.932,
+      "parents": [
+        "T017",
+        "T025"
+      ],
+      "family": "bursty_mixed",
+      "bytes_moved": 7077888.0,
+      "criticality": 0.25
+    },
+    {
+      "task_id": "T027",
+      "size": 1024,
+      "total_chunks": 90,
+      "priority": 3,
+      "arrival_ms": 191.043,
+      "parents": [],
+      "family": "bursty_mixed",
+      "bytes_moved": 12582912.0,
+      "criticality": 0.25
+    },
+    {
+      "task_id": "T028",
+      "size": 2048,
+      "total_chunks": 96,
+      "priority": 3,
+      "arrival_ms": 238.04,
+      "parents": [
+        "T027"
+      ],
+      "family": "bursty_mixed",
+      "bytes_moved": 50331648.0,
+      "criticality": 0.0
+    },
+    {
+      "task_id": "T029",
+      "size": 1024,
+      "total_chunks": 86,
+      "priority": 3,
+      "arrival_ms": 224.001,
+      "parents": [
+        "T026"
+      ],
+      "family": "bursty_mixed",
+      "bytes_moved": 12582912.0,
+      "criticality": 0.0
+    }
+  ]
+}

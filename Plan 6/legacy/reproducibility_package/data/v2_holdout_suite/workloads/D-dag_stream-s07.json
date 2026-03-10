@@ -1,0 +1,3162 @@
+{
+  "metadata": {
+    "workload_name": "dag_stream",
+    "seed": 7,
+    "task_count": 128,
+    "profile": {
+      "task_count": 128,
+      "arrival_rate": 1.05,
+      "mix": {
+        "cpu_control": 0.25,
+        "gpu_dense": 0.24,
+        "npu_infer": 0.2,
+        "memory_bound": 0.31
+      },
+      "dag_probability": 0.72,
+      "burst_pattern": [
+        [
+          50,
+          75,
+          1.9
+        ]
+      ]
+    }
+  },
+  "tasks": [
+    {
+      "task_id": "dag_stream-task-000",
+      "dag_id": "dag_stream-dag-001",
+      "arrival_time": 4,
+      "priority": 2,
+      "latency_class": "best_effort",
+      "task_type": "memory_bound",
+      "size": 34.92,
+      "bandwidth_demand": 5.149,
+      "checkpoint_interval": 0.33,
+      "migration_penalty": 4,
+      "service_time": {
+        "cpu": 8,
+        "gpu": 9,
+        "npu": 10
+      },
+      "power_draw": {
+        "cpu": 8.419,
+        "gpu": 10.289,
+        "npu": 8.886
+      },
+      "deps": []
+    },
+    {
+      "task_id": "dag_stream-task-001",
+      "dag_id": "dag_stream-dag-002",
+      "arrival_time": 5,
+      "priority": 9,
+      "latency_class": "interactive",
+      "task_type": "npu_infer",
+      "size": 30.639,
+      "bandwidth_demand": 0.849,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 11,
+        "gpu": 8,
+        "npu": 4
+      },
+      "power_draw": {
+        "cpu": 4.399,
+        "gpu": 6.159,
+        "npu": 4.693
+      },
+      "deps": []
+    },
+    {
+      "task_id": "dag_stream-task-002",
+      "dag_id": "dag_stream-dag-002",
+      "arrival_time": 7,
+      "priority": 8,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 32.231,
+      "bandwidth_demand": 2.233,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 7,
+        "gpu": 12,
+        "npu": 16
+      },
+      "power_draw": {
+        "cpu": 7.372,
+        "gpu": 9.952,
+        "npu": 8.478
+      },
+      "deps": [
+        "dag_stream-task-001"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-003",
+      "dag_id": "dag_stream-dag-002",
+      "arrival_time": 10,
+      "priority": 5,
+      "latency_class": "best_effort",
+      "task_type": "memory_bound",
+      "size": 49.232,
+      "bandwidth_demand": 4.944,
+      "checkpoint_interval": 0.33,
+      "migration_penalty": 4,
+      "service_time": {
+        "cpu": 12,
+        "gpu": 13,
+        "npu": 15
+      },
+      "power_draw": {
+        "cpu": 8.823,
+        "gpu": 10.784,
+        "npu": 9.314
+      },
+      "deps": [
+        "dag_stream-task-002",
+        "dag_stream-task-001"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-004",
+      "dag_id": "dag_stream-dag-002",
+      "arrival_time": 11,
+      "priority": 9,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 38.644,
+      "bandwidth_demand": 1.232,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 8,
+        "gpu": 15,
+        "npu": 20
+      },
+      "power_draw": {
+        "cpu": 6.853,
+        "gpu": 9.251,
+        "npu": 7.881
+      },
+      "deps": [
+        "dag_stream-task-003"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-005",
+      "dag_id": "dag_stream-dag-002",
+      "arrival_time": 12,
+      "priority": 4,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 89.212,
+      "bandwidth_demand": 2.403,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 39,
+        "gpu": 13,
+        "npu": 22
+      },
+      "power_draw": {
+        "cpu": 9.901,
+        "gpu": 16.154,
+        "npu": 12.507
+      },
+      "deps": [
+        "dag_stream-task-004",
+        "dag_stream-task-003"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-006",
+      "dag_id": "dag_stream-dag-002",
+      "arrival_time": 13,
+      "priority": 8,
+      "latency_class": "interactive",
+      "task_type": "npu_infer",
+      "size": 28.859,
+      "bandwidth_demand": 1.138,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 11,
+        "gpu": 7,
+        "npu": 4
+      },
+      "power_draw": {
+        "cpu": 4.771,
+        "gpu": 6.68,
+        "npu": 5.089
+      },
+      "deps": [
+        "dag_stream-task-005",
+        "dag_stream-task-004"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-007",
+      "dag_id": "dag_stream-dag-003",
+      "arrival_time": 15,
+      "priority": 7,
+      "latency_class": "interactive",
+      "task_type": "npu_infer",
+      "size": 31.209,
+      "bandwidth_demand": 1.32,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 11,
+        "gpu": 8,
+        "npu": 5
+      },
+      "power_draw": {
+        "cpu": 5.014,
+        "gpu": 7.02,
+        "npu": 5.348
+      },
+      "deps": []
+    },
+    {
+      "task_id": "dag_stream-task-008",
+      "dag_id": "dag_stream-dag-003",
+      "arrival_time": 19,
+      "priority": 5,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 77.465,
+      "bandwidth_demand": 2.543,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 37,
+        "gpu": 13,
+        "npu": 21
+      },
+      "power_draw": {
+        "cpu": 9.324,
+        "gpu": 15.214,
+        "npu": 11.778
+      },
+      "deps": [
+        "dag_stream-task-007"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-009",
+      "dag_id": "dag_stream-dag-003",
+      "arrival_time": 21,
+      "priority": 9,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 38.013,
+      "bandwidth_demand": 1.022,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 7,
+        "gpu": 14,
+        "npu": 18
+      },
+      "power_draw": {
+        "cpu": 6.561,
+        "gpu": 8.858,
+        "npu": 7.545
+      },
+      "deps": [
+        "dag_stream-task-008",
+        "dag_stream-task-007"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-010",
+      "dag_id": "dag_stream-dag-003",
+      "arrival_time": 22,
+      "priority": 6,
+      "latency_class": "best_effort",
+      "task_type": "memory_bound",
+      "size": 43.699,
+      "bandwidth_demand": 4.742,
+      "checkpoint_interval": 0.33,
+      "migration_penalty": 4,
+      "service_time": {
+        "cpu": 9,
+        "gpu": 10,
+        "npu": 12
+      },
+      "power_draw": {
+        "cpu": 8.588,
+        "gpu": 10.497,
+        "npu": 9.065
+      },
+      "deps": [
+        "dag_stream-task-009"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-011",
+      "dag_id": "dag_stream-dag-004",
+      "arrival_time": 24,
+      "priority": 10,
+      "latency_class": "interactive",
+      "task_type": "npu_infer",
+      "size": 30.914,
+      "bandwidth_demand": 0.848,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 11,
+        "gpu": 8,
+        "npu": 5
+      },
+      "power_draw": {
+        "cpu": 4.627,
+        "gpu": 6.478,
+        "npu": 4.936
+      },
+      "deps": []
+    },
+    {
+      "task_id": "dag_stream-task-012",
+      "dag_id": "dag_stream-dag-004",
+      "arrival_time": 25,
+      "priority": 8,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 35.051,
+      "bandwidth_demand": 1.311,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 6,
+        "gpu": 12,
+        "npu": 15
+      },
+      "power_draw": {
+        "cpu": 6.898,
+        "gpu": 9.312,
+        "npu": 7.932
+      },
+      "deps": [
+        "dag_stream-task-011"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-013",
+      "dag_id": "dag_stream-dag-004",
+      "arrival_time": 27,
+      "priority": 10,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 31.994,
+      "bandwidth_demand": 2.05,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 6,
+        "gpu": 12,
+        "npu": 15
+      },
+      "power_draw": {
+        "cpu": 7.219,
+        "gpu": 9.746,
+        "npu": 8.302
+      },
+      "deps": [
+        "dag_stream-task-012"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-014",
+      "dag_id": "dag_stream-dag-004",
+      "arrival_time": 30,
+      "priority": 7,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 75.297,
+      "bandwidth_demand": 4.129,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 37,
+        "gpu": 13,
+        "npu": 21
+      },
+      "power_draw": {
+        "cpu": 10.203,
+        "gpu": 16.648,
+        "npu": 12.888
+      },
+      "deps": [
+        "dag_stream-task-013"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-015",
+      "dag_id": "dag_stream-dag-004",
+      "arrival_time": 32,
+      "priority": 4,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 72.566,
+      "bandwidth_demand": 3.03,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 34,
+        "gpu": 11,
+        "npu": 19
+      },
+      "power_draw": {
+        "cpu": 9.243,
+        "gpu": 15.08,
+        "npu": 11.675
+      },
+      "deps": [
+        "dag_stream-task-014",
+        "dag_stream-task-013"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-016",
+      "dag_id": "dag_stream-dag-004",
+      "arrival_time": 33,
+      "priority": 5,
+      "latency_class": "best_effort",
+      "task_type": "memory_bound",
+      "size": 43.11,
+      "bandwidth_demand": 4.075,
+      "checkpoint_interval": 0.33,
+      "migration_penalty": 4,
+      "service_time": {
+        "cpu": 11,
+        "gpu": 12,
+        "npu": 13
+      },
+      "power_draw": {
+        "cpu": 8.043,
+        "gpu": 9.83,
+        "npu": 8.49
+      },
+      "deps": [
+        "dag_stream-task-015"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-017",
+      "dag_id": "dag_stream-dag-005",
+      "arrival_time": 34,
+      "priority": 5,
+      "latency_class": "best_effort",
+      "task_type": "memory_bound",
+      "size": 51.557,
+      "bandwidth_demand": 4.26,
+      "checkpoint_interval": 0.33,
+      "migration_penalty": 4,
+      "service_time": {
+        "cpu": 11,
+        "gpu": 12,
+        "npu": 14
+      },
+      "power_draw": {
+        "cpu": 8.545,
+        "gpu": 10.443,
+        "npu": 9.019
+      },
+      "deps": []
+    },
+    {
+      "task_id": "dag_stream-task-018",
+      "dag_id": "dag_stream-dag-006",
+      "arrival_time": 36,
+      "priority": 5,
+      "latency_class": "best_effort",
+      "task_type": "memory_bound",
+      "size": 45.386,
+      "bandwidth_demand": 4.448,
+      "checkpoint_interval": 0.33,
+      "migration_penalty": 4,
+      "service_time": {
+        "cpu": 11,
+        "gpu": 12,
+        "npu": 14
+      },
+      "power_draw": {
+        "cpu": 8.541,
+        "gpu": 10.439,
+        "npu": 9.015
+      },
+      "deps": []
+    },
+    {
+      "task_id": "dag_stream-task-019",
+      "dag_id": "dag_stream-dag-006",
+      "arrival_time": 38,
+      "priority": 7,
+      "latency_class": "interactive",
+      "task_type": "npu_infer",
+      "size": 22.73,
+      "bandwidth_demand": 1.02,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 8,
+        "gpu": 5,
+        "npu": 3
+      },
+      "power_draw": {
+        "cpu": 4.357,
+        "gpu": 6.1,
+        "npu": 4.647
+      },
+      "deps": [
+        "dag_stream-task-018"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-020",
+      "dag_id": "dag_stream-dag-006",
+      "arrival_time": 40,
+      "priority": 3,
+      "latency_class": "best_effort",
+      "task_type": "memory_bound",
+      "size": 38.577,
+      "bandwidth_demand": 4.261,
+      "checkpoint_interval": 0.33,
+      "migration_penalty": 4,
+      "service_time": {
+        "cpu": 9,
+        "gpu": 10,
+        "npu": 11
+      },
+      "power_draw": {
+        "cpu": 8.064,
+        "gpu": 9.856,
+        "npu": 8.512
+      },
+      "deps": [
+        "dag_stream-task-019"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-021",
+      "dag_id": "dag_stream-dag-006",
+      "arrival_time": 41,
+      "priority": 3,
+      "latency_class": "best_effort",
+      "task_type": "memory_bound",
+      "size": 54.672,
+      "bandwidth_demand": 4.141,
+      "checkpoint_interval": 0.33,
+      "migration_penalty": 4,
+      "service_time": {
+        "cpu": 13,
+        "gpu": 15,
+        "npu": 17
+      },
+      "power_draw": {
+        "cpu": 8.666,
+        "gpu": 10.592,
+        "npu": 9.147
+      },
+      "deps": [
+        "dag_stream-task-020",
+        "dag_stream-task-019"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-022",
+      "dag_id": "dag_stream-dag-007",
+      "arrival_time": 45,
+      "priority": 7,
+      "latency_class": "interactive",
+      "task_type": "npu_infer",
+      "size": 17.173,
+      "bandwidth_demand": 1.84,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 6,
+        "gpu": 4,
+        "npu": 3
+      },
+      "power_draw": {
+        "cpu": 4.607,
+        "gpu": 6.45,
+        "npu": 4.915
+      },
+      "deps": []
+    },
+    {
+      "task_id": "dag_stream-task-023",
+      "dag_id": "dag_stream-dag-008",
+      "arrival_time": 47,
+      "priority": 8,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 31.245,
+      "bandwidth_demand": 2.159,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 6,
+        "gpu": 11,
+        "npu": 15
+      },
+      "power_draw": {
+        "cpu": 7.235,
+        "gpu": 9.767,
+        "npu": 8.32
+      },
+      "deps": []
+    },
+    {
+      "task_id": "dag_stream-task-024",
+      "dag_id": "dag_stream-dag-009",
+      "arrival_time": 49,
+      "priority": 7,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 64.428,
+      "bandwidth_demand": 3.419,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 29,
+        "gpu": 10,
+        "npu": 16
+      },
+      "power_draw": {
+        "cpu": 9.03,
+        "gpu": 14.733,
+        "npu": 11.406
+      },
+      "deps": []
+    },
+    {
+      "task_id": "dag_stream-task-025",
+      "dag_id": "dag_stream-dag-010",
+      "arrival_time": 51,
+      "priority": 2,
+      "latency_class": "best_effort",
+      "task_type": "memory_bound",
+      "size": 51.115,
+      "bandwidth_demand": 3.596,
+      "checkpoint_interval": 0.33,
+      "migration_penalty": 4,
+      "service_time": {
+        "cpu": 12,
+        "gpu": 14,
+        "npu": 16
+      },
+      "power_draw": {
+        "cpu": 8.136,
+        "gpu": 9.944,
+        "npu": 8.588
+      },
+      "deps": []
+    },
+    {
+      "task_id": "dag_stream-task-026",
+      "dag_id": "dag_stream-dag-010",
+      "arrival_time": 53,
+      "priority": 9,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 37.024,
+      "bandwidth_demand": 1.345,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 7,
+        "gpu": 14,
+        "npu": 18
+      },
+      "power_draw": {
+        "cpu": 6.718,
+        "gpu": 9.07,
+        "npu": 7.726
+      },
+      "deps": [
+        "dag_stream-task-025"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-027",
+      "dag_id": "dag_stream-dag-010",
+      "arrival_time": 54,
+      "priority": 6,
+      "latency_class": "interactive",
+      "task_type": "npu_infer",
+      "size": 20.13,
+      "bandwidth_demand": 1.372,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 7,
+        "gpu": 5,
+        "npu": 3
+      },
+      "power_draw": {
+        "cpu": 4.342,
+        "gpu": 6.078,
+        "npu": 4.631
+      },
+      "deps": [
+        "dag_stream-task-026",
+        "dag_stream-task-025"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-028",
+      "dag_id": "dag_stream-dag-010",
+      "arrival_time": 55,
+      "priority": 4,
+      "latency_class": "best_effort",
+      "task_type": "memory_bound",
+      "size": 36.674,
+      "bandwidth_demand": 4.02,
+      "checkpoint_interval": 0.33,
+      "migration_penalty": 4,
+      "service_time": {
+        "cpu": 8,
+        "gpu": 9,
+        "npu": 10
+      },
+      "power_draw": {
+        "cpu": 7.55,
+        "gpu": 9.227,
+        "npu": 7.969
+      },
+      "deps": [
+        "dag_stream-task-027"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-029",
+      "dag_id": "dag_stream-dag-011",
+      "arrival_time": 56,
+      "priority": 7,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 81.961,
+      "bandwidth_demand": 3.845,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 36,
+        "gpu": 12,
+        "npu": 21
+      },
+      "power_draw": {
+        "cpu": 10.148,
+        "gpu": 16.558,
+        "npu": 12.819
+      },
+      "deps": []
+    },
+    {
+      "task_id": "dag_stream-task-030",
+      "dag_id": "dag_stream-dag-012",
+      "arrival_time": 58,
+      "priority": 2,
+      "latency_class": "best_effort",
+      "task_type": "memory_bound",
+      "size": 42.642,
+      "bandwidth_demand": 5.069,
+      "checkpoint_interval": 0.33,
+      "migration_penalty": 4,
+      "service_time": {
+        "cpu": 10,
+        "gpu": 11,
+        "npu": 13
+      },
+      "power_draw": {
+        "cpu": 8.778,
+        "gpu": 10.729,
+        "npu": 9.266
+      },
+      "deps": []
+    },
+    {
+      "task_id": "dag_stream-task-031",
+      "dag_id": "dag_stream-dag-012",
+      "arrival_time": 61,
+      "priority": 3,
+      "latency_class": "best_effort",
+      "task_type": "memory_bound",
+      "size": 50.508,
+      "bandwidth_demand": 4.085,
+      "checkpoint_interval": 0.33,
+      "migration_penalty": 4,
+      "service_time": {
+        "cpu": 11,
+        "gpu": 13,
+        "npu": 15
+      },
+      "power_draw": {
+        "cpu": 8.44,
+        "gpu": 10.316,
+        "npu": 8.909
+      },
+      "deps": [
+        "dag_stream-task-030"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-032",
+      "dag_id": "dag_stream-dag-012",
+      "arrival_time": 63,
+      "priority": 8,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 31.709,
+      "bandwidth_demand": 1.896,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 6,
+        "gpu": 11,
+        "npu": 14
+      },
+      "power_draw": {
+        "cpu": 6.695,
+        "gpu": 9.039,
+        "npu": 7.7
+      },
+      "deps": [
+        "dag_stream-task-031",
+        "dag_stream-task-030"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-033",
+      "dag_id": "dag_stream-dag-012",
+      "arrival_time": 64,
+      "priority": 7,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 28.233,
+      "bandwidth_demand": 2.346,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 5,
+        "gpu": 10,
+        "npu": 13
+      },
+      "power_draw": {
+        "cpu": 6.853,
+        "gpu": 9.252,
+        "npu": 7.881
+      },
+      "deps": [
+        "dag_stream-task-032"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-034",
+      "dag_id": "dag_stream-dag-013",
+      "arrival_time": 65,
+      "priority": 3,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 48.663,
+      "bandwidth_demand": 3.191,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 22,
+        "gpu": 8,
+        "npu": 12
+      },
+      "power_draw": {
+        "cpu": 8.102,
+        "gpu": 13.22,
+        "npu": 10.235
+      },
+      "deps": []
+    },
+    {
+      "task_id": "dag_stream-task-035",
+      "dag_id": "dag_stream-dag-014",
+      "arrival_time": 66,
+      "priority": 2,
+      "latency_class": "best_effort",
+      "task_type": "memory_bound",
+      "size": 33.522,
+      "bandwidth_demand": 4.549,
+      "checkpoint_interval": 0.33,
+      "migration_penalty": 4,
+      "service_time": {
+        "cpu": 8,
+        "gpu": 9,
+        "npu": 10
+      },
+      "power_draw": {
+        "cpu": 8.146,
+        "gpu": 9.956,
+        "npu": 8.598
+      },
+      "deps": []
+    },
+    {
+      "task_id": "dag_stream-task-036",
+      "dag_id": "dag_stream-dag-015",
+      "arrival_time": 67,
+      "priority": 8,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 42.324,
+      "bandwidth_demand": 2.251,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 8,
+        "gpu": 16,
+        "npu": 20
+      },
+      "power_draw": {
+        "cpu": 7.421,
+        "gpu": 10.019,
+        "npu": 8.535
+      },
+      "deps": []
+    },
+    {
+      "task_id": "dag_stream-task-037",
+      "dag_id": "dag_stream-dag-015",
+      "arrival_time": 68,
+      "priority": 10,
+      "latency_class": "interactive",
+      "task_type": "npu_infer",
+      "size": 25.606,
+      "bandwidth_demand": 1.727,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 10,
+        "gpu": 7,
+        "npu": 4
+      },
+      "power_draw": {
+        "cpu": 5.04,
+        "gpu": 7.057,
+        "npu": 5.377
+      },
+      "deps": [
+        "dag_stream-task-036"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-038",
+      "dag_id": "dag_stream-dag-015",
+      "arrival_time": 70,
+      "priority": 7,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 28.934,
+      "bandwidth_demand": 1.045,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 6,
+        "gpu": 11,
+        "npu": 15
+      },
+      "power_draw": {
+        "cpu": 6.428,
+        "gpu": 8.677,
+        "npu": 7.392
+      },
+      "deps": [
+        "dag_stream-task-037"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-039",
+      "dag_id": "dag_stream-dag-015",
+      "arrival_time": 72,
+      "priority": 5,
+      "latency_class": "best_effort",
+      "task_type": "memory_bound",
+      "size": 46.358,
+      "bandwidth_demand": 4.632,
+      "checkpoint_interval": 0.33,
+      "migration_penalty": 4,
+      "service_time": {
+        "cpu": 11,
+        "gpu": 12,
+        "npu": 14
+      },
+      "power_draw": {
+        "cpu": 8.849,
+        "gpu": 10.815,
+        "npu": 9.34
+      },
+      "deps": [
+        "dag_stream-task-038"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-040",
+      "dag_id": "dag_stream-dag-015",
+      "arrival_time": 75,
+      "priority": 9,
+      "latency_class": "interactive",
+      "task_type": "npu_infer",
+      "size": 21.372,
+      "bandwidth_demand": 1.415,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 7,
+        "gpu": 5,
+        "npu": 3
+      },
+      "power_draw": {
+        "cpu": 4.645,
+        "gpu": 6.504,
+        "npu": 4.955
+      },
+      "deps": [
+        "dag_stream-task-039"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-041",
+      "dag_id": "dag_stream-dag-015",
+      "arrival_time": 79,
+      "priority": 6,
+      "latency_class": "best_effort",
+      "task_type": "memory_bound",
+      "size": 40.632,
+      "bandwidth_demand": 4.948,
+      "checkpoint_interval": 0.33,
+      "migration_penalty": 4,
+      "service_time": {
+        "cpu": 9,
+        "gpu": 10,
+        "npu": 12
+      },
+      "power_draw": {
+        "cpu": 8.317,
+        "gpu": 10.165,
+        "npu": 8.779
+      },
+      "deps": [
+        "dag_stream-task-040"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-042",
+      "dag_id": "dag_stream-dag-016",
+      "arrival_time": 80,
+      "priority": 10,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 26.054,
+      "bandwidth_demand": 1.425,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 5,
+        "gpu": 9,
+        "npu": 12
+      },
+      "power_draw": {
+        "cpu": 6.557,
+        "gpu": 8.852,
+        "npu": 7.541
+      },
+      "deps": []
+    },
+    {
+      "task_id": "dag_stream-task-043",
+      "dag_id": "dag_stream-dag-017",
+      "arrival_time": 81,
+      "priority": 5,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 87.538,
+      "bandwidth_demand": 3.769,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 41,
+        "gpu": 14,
+        "npu": 23
+      },
+      "power_draw": {
+        "cpu": 10.181,
+        "gpu": 16.612,
+        "npu": 12.861
+      },
+      "deps": []
+    },
+    {
+      "task_id": "dag_stream-task-044",
+      "dag_id": "dag_stream-dag-018",
+      "arrival_time": 84,
+      "priority": 6,
+      "latency_class": "best_effort",
+      "task_type": "memory_bound",
+      "size": 35.364,
+      "bandwidth_demand": 3.742,
+      "checkpoint_interval": 0.33,
+      "migration_penalty": 4,
+      "service_time": {
+        "cpu": 9,
+        "gpu": 10,
+        "npu": 11
+      },
+      "power_draw": {
+        "cpu": 7.65,
+        "gpu": 9.35,
+        "npu": 8.075
+      },
+      "deps": []
+    },
+    {
+      "task_id": "dag_stream-task-045",
+      "dag_id": "dag_stream-dag-019",
+      "arrival_time": 87,
+      "priority": 10,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 27.887,
+      "bandwidth_demand": 2.315,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 6,
+        "gpu": 11,
+        "npu": 14
+      },
+      "power_draw": {
+        "cpu": 6.793,
+        "gpu": 9.17,
+        "npu": 7.811
+      },
+      "deps": []
+    },
+    {
+      "task_id": "dag_stream-task-046",
+      "dag_id": "dag_stream-dag-019",
+      "arrival_time": 89,
+      "priority": 3,
+      "latency_class": "best_effort",
+      "task_type": "memory_bound",
+      "size": 31.528,
+      "bandwidth_demand": 4.377,
+      "checkpoint_interval": 0.33,
+      "migration_penalty": 4,
+      "service_time": {
+        "cpu": 7,
+        "gpu": 8,
+        "npu": 9
+      },
+      "power_draw": {
+        "cpu": 7.803,
+        "gpu": 9.538,
+        "npu": 8.237
+      },
+      "deps": [
+        "dag_stream-task-045"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-047",
+      "dag_id": "dag_stream-dag-019",
+      "arrival_time": 90,
+      "priority": 5,
+      "latency_class": "best_effort",
+      "task_type": "memory_bound",
+      "size": 30.532,
+      "bandwidth_demand": 3.966,
+      "checkpoint_interval": 0.33,
+      "migration_penalty": 4,
+      "service_time": {
+        "cpu": 7,
+        "gpu": 8,
+        "npu": 9
+      },
+      "power_draw": {
+        "cpu": 7.372,
+        "gpu": 9.01,
+        "npu": 7.781
+      },
+      "deps": [
+        "dag_stream-task-046"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-048",
+      "dag_id": "dag_stream-dag-020",
+      "arrival_time": 91,
+      "priority": 9,
+      "latency_class": "interactive",
+      "task_type": "npu_infer",
+      "size": 23.275,
+      "bandwidth_demand": 1.835,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 8,
+        "gpu": 6,
+        "npu": 3
+      },
+      "power_draw": {
+        "cpu": 4.952,
+        "gpu": 6.933,
+        "npu": 5.282
+      },
+      "deps": []
+    },
+    {
+      "task_id": "dag_stream-task-049",
+      "dag_id": "dag_stream-dag-020",
+      "arrival_time": 94,
+      "priority": 8,
+      "latency_class": "interactive",
+      "task_type": "npu_infer",
+      "size": 27.847,
+      "bandwidth_demand": 1.254,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 10,
+        "gpu": 7,
+        "npu": 4
+      },
+      "power_draw": {
+        "cpu": 4.652,
+        "gpu": 6.513,
+        "npu": 4.962
+      },
+      "deps": [
+        "dag_stream-task-048"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-050",
+      "dag_id": "dag_stream-dag-020",
+      "arrival_time": 95,
+      "priority": 9,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 43.184,
+      "bandwidth_demand": 1.999,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 8,
+        "gpu": 15,
+        "npu": 19
+      },
+      "power_draw": {
+        "cpu": 7.697,
+        "gpu": 10.391,
+        "npu": 8.852
+      },
+      "deps": [
+        "dag_stream-task-049"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-051",
+      "dag_id": "dag_stream-dag-020",
+      "arrival_time": 97,
+      "priority": 5,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 68.649,
+      "bandwidth_demand": 4.236,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 32,
+        "gpu": 11,
+        "npu": 18
+      },
+      "power_draw": {
+        "cpu": 9.767,
+        "gpu": 15.935,
+        "npu": 12.337
+      },
+      "deps": [
+        "dag_stream-task-050"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-052",
+      "dag_id": "dag_stream-dag-020",
+      "arrival_time": 99,
+      "priority": 8,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 26.829,
+      "bandwidth_demand": 1.38,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 5,
+        "gpu": 9,
+        "npu": 12
+      },
+      "power_draw": {
+        "cpu": 6.045,
+        "gpu": 8.161,
+        "npu": 6.952
+      },
+      "deps": [
+        "dag_stream-task-051"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-053",
+      "dag_id": "dag_stream-dag-020",
+      "arrival_time": 100,
+      "priority": 8,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 57.433,
+      "bandwidth_demand": 3.921,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 26,
+        "gpu": 9,
+        "npu": 15
+      },
+      "power_draw": {
+        "cpu": 9.177,
+        "gpu": 14.972,
+        "npu": 11.591
+      },
+      "deps": [
+        "dag_stream-task-052"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-054",
+      "dag_id": "dag_stream-dag-021",
+      "arrival_time": 103,
+      "priority": 10,
+      "latency_class": "interactive",
+      "task_type": "npu_infer",
+      "size": 17.202,
+      "bandwidth_demand": 0.95,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 7,
+        "gpu": 5,
+        "npu": 3
+      },
+      "power_draw": {
+        "cpu": 4.132,
+        "gpu": 5.785,
+        "npu": 4.408
+      },
+      "deps": []
+    },
+    {
+      "task_id": "dag_stream-task-055",
+      "dag_id": "dag_stream-dag-021",
+      "arrival_time": 106,
+      "priority": 4,
+      "latency_class": "best_effort",
+      "task_type": "memory_bound",
+      "size": 29.997,
+      "bandwidth_demand": 4.511,
+      "checkpoint_interval": 0.33,
+      "migration_penalty": 4,
+      "service_time": {
+        "cpu": 8,
+        "gpu": 8,
+        "npu": 10
+      },
+      "power_draw": {
+        "cpu": 7.525,
+        "gpu": 9.197,
+        "npu": 7.943
+      },
+      "deps": [
+        "dag_stream-task-054"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-056",
+      "dag_id": "dag_stream-dag-021",
+      "arrival_time": 109,
+      "priority": 10,
+      "latency_class": "interactive",
+      "task_type": "npu_infer",
+      "size": 21.904,
+      "bandwidth_demand": 1.712,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 7,
+        "gpu": 5,
+        "npu": 3
+      },
+      "power_draw": {
+        "cpu": 4.614,
+        "gpu": 6.46,
+        "npu": 4.922
+      },
+      "deps": [
+        "dag_stream-task-055",
+        "dag_stream-task-054"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-057",
+      "dag_id": "dag_stream-dag-021",
+      "arrival_time": 113,
+      "priority": 5,
+      "latency_class": "best_effort",
+      "task_type": "memory_bound",
+      "size": 42.087,
+      "bandwidth_demand": 4.27,
+      "checkpoint_interval": 0.33,
+      "migration_penalty": 4,
+      "service_time": {
+        "cpu": 9,
+        "gpu": 10,
+        "npu": 12
+      },
+      "power_draw": {
+        "cpu": 7.937,
+        "gpu": 9.7,
+        "npu": 8.378
+      },
+      "deps": [
+        "dag_stream-task-056"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-058",
+      "dag_id": "dag_stream-dag-021",
+      "arrival_time": 115,
+      "priority": 8,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 54.748,
+      "bandwidth_demand": 2.213,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 27,
+        "gpu": 9,
+        "npu": 15
+      },
+      "power_draw": {
+        "cpu": 8.131,
+        "gpu": 13.266,
+        "npu": 10.27
+      },
+      "deps": [
+        "dag_stream-task-057"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-059",
+      "dag_id": "dag_stream-dag-021",
+      "arrival_time": 118,
+      "priority": 9,
+      "latency_class": "interactive",
+      "task_type": "npu_infer",
+      "size": 26.354,
+      "bandwidth_demand": 1.188,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 10,
+        "gpu": 7,
+        "npu": 4
+      },
+      "power_draw": {
+        "cpu": 4.652,
+        "gpu": 6.513,
+        "npu": 4.962
+      },
+      "deps": [
+        "dag_stream-task-058"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-060",
+      "dag_id": "dag_stream-dag-022",
+      "arrival_time": 120,
+      "priority": 4,
+      "latency_class": "best_effort",
+      "task_type": "memory_bound",
+      "size": 44.514,
+      "bandwidth_demand": 3.837,
+      "checkpoint_interval": 0.33,
+      "migration_penalty": 4,
+      "service_time": {
+        "cpu": 10,
+        "gpu": 12,
+        "npu": 13
+      },
+      "power_draw": {
+        "cpu": 8.015,
+        "gpu": 9.797,
+        "npu": 8.461
+      },
+      "deps": []
+    },
+    {
+      "task_id": "dag_stream-task-061",
+      "dag_id": "dag_stream-dag-022",
+      "arrival_time": 121,
+      "priority": 9,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 35.622,
+      "bandwidth_demand": 2.144,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 7,
+        "gpu": 13,
+        "npu": 17
+      },
+      "power_draw": {
+        "cpu": 7.422,
+        "gpu": 10.02,
+        "npu": 8.535
+      },
+      "deps": [
+        "dag_stream-task-060"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-062",
+      "dag_id": "dag_stream-dag-022",
+      "arrival_time": 124,
+      "priority": 3,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 59.882,
+      "bandwidth_demand": 2.968,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 29,
+        "gpu": 10,
+        "npu": 16
+      },
+      "power_draw": {
+        "cpu": 8.724,
+        "gpu": 14.235,
+        "npu": 11.02
+      },
+      "deps": [
+        "dag_stream-task-061"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-063",
+      "dag_id": "dag_stream-dag-023",
+      "arrival_time": 126,
+      "priority": 9,
+      "latency_class": "interactive",
+      "task_type": "npu_infer",
+      "size": 17.712,
+      "bandwidth_demand": 1.781,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 6,
+        "gpu": 4,
+        "npu": 3
+      },
+      "power_draw": {
+        "cpu": 4.487,
+        "gpu": 6.281,
+        "npu": 4.786
+      },
+      "deps": []
+    },
+    {
+      "task_id": "dag_stream-task-064",
+      "dag_id": "dag_stream-dag-024",
+      "arrival_time": 127,
+      "priority": 10,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 40.681,
+      "bandwidth_demand": 2.274,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 7,
+        "gpu": 13,
+        "npu": 17
+      },
+      "power_draw": {
+        "cpu": 7.526,
+        "gpu": 10.16,
+        "npu": 8.654
+      },
+      "deps": []
+    },
+    {
+      "task_id": "dag_stream-task-065",
+      "dag_id": "dag_stream-dag-025",
+      "arrival_time": 129,
+      "priority": 10,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 32.33,
+      "bandwidth_demand": 2.29,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 6,
+        "gpu": 11,
+        "npu": 14
+      },
+      "power_draw": {
+        "cpu": 7.212,
+        "gpu": 9.736,
+        "npu": 8.294
+      },
+      "deps": []
+    },
+    {
+      "task_id": "dag_stream-task-066",
+      "dag_id": "dag_stream-dag-025",
+      "arrival_time": 130,
+      "priority": 6,
+      "latency_class": "interactive",
+      "task_type": "npu_infer",
+      "size": 27.928,
+      "bandwidth_demand": 1.325,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 9,
+        "gpu": 6,
+        "npu": 4
+      },
+      "power_draw": {
+        "cpu": 4.677,
+        "gpu": 6.548,
+        "npu": 4.989
+      },
+      "deps": [
+        "dag_stream-task-065"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-067",
+      "dag_id": "dag_stream-dag-025",
+      "arrival_time": 133,
+      "priority": 4,
+      "latency_class": "best_effort",
+      "task_type": "memory_bound",
+      "size": 50.522,
+      "bandwidth_demand": 3.698,
+      "checkpoint_interval": 0.33,
+      "migration_penalty": 4,
+      "service_time": {
+        "cpu": 11,
+        "gpu": 12,
+        "npu": 14
+      },
+      "power_draw": {
+        "cpu": 8.355,
+        "gpu": 10.212,
+        "npu": 8.819
+      },
+      "deps": [
+        "dag_stream-task-066",
+        "dag_stream-task-065"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-068",
+      "dag_id": "dag_stream-dag-025",
+      "arrival_time": 134,
+      "priority": 10,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 41.168,
+      "bandwidth_demand": 1.227,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 8,
+        "gpu": 15,
+        "npu": 19
+      },
+      "power_draw": {
+        "cpu": 7.015,
+        "gpu": 9.47,
+        "npu": 8.067
+      },
+      "deps": [
+        "dag_stream-task-067"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-069",
+      "dag_id": "dag_stream-dag-025",
+      "arrival_time": 138,
+      "priority": 6,
+      "latency_class": "interactive",
+      "task_type": "npu_infer",
+      "size": 18.646,
+      "bandwidth_demand": 0.967,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 6,
+        "gpu": 4,
+        "npu": 3
+      },
+      "power_draw": {
+        "cpu": 4.079,
+        "gpu": 5.711,
+        "npu": 4.351
+      },
+      "deps": [
+        "dag_stream-task-068"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-070",
+      "dag_id": "dag_stream-dag-026",
+      "arrival_time": 141,
+      "priority": 8,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 32.226,
+      "bandwidth_demand": 1.499,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 6,
+        "gpu": 12,
+        "npu": 15
+      },
+      "power_draw": {
+        "cpu": 6.529,
+        "gpu": 8.814,
+        "npu": 7.509
+      },
+      "deps": []
+    },
+    {
+      "task_id": "dag_stream-task-071",
+      "dag_id": "dag_stream-dag-026",
+      "arrival_time": 143,
+      "priority": 10,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 29.284,
+      "bandwidth_demand": 2.057,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 6,
+        "gpu": 10,
+        "npu": 14
+      },
+      "power_draw": {
+        "cpu": 7.057,
+        "gpu": 9.527,
+        "npu": 8.116
+      },
+      "deps": [
+        "dag_stream-task-070"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-072",
+      "dag_id": "dag_stream-dag-026",
+      "arrival_time": 146,
+      "priority": 4,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 87.033,
+      "bandwidth_demand": 4.387,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 40,
+        "gpu": 13,
+        "npu": 23
+      },
+      "power_draw": {
+        "cpu": 10.986,
+        "gpu": 17.924,
+        "npu": 13.877
+      },
+      "deps": [
+        "dag_stream-task-071"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-073",
+      "dag_id": "dag_stream-dag-026",
+      "arrival_time": 147,
+      "priority": 4,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 54.139,
+      "bandwidth_demand": 3.138,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 28,
+        "gpu": 10,
+        "npu": 16
+      },
+      "power_draw": {
+        "cpu": 8.257,
+        "gpu": 13.472,
+        "npu": 10.43
+      },
+      "deps": [
+        "dag_stream-task-072"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-074",
+      "dag_id": "dag_stream-dag-027",
+      "arrival_time": 149,
+      "priority": 5,
+      "latency_class": "best_effort",
+      "task_type": "memory_bound",
+      "size": 42.264,
+      "bandwidth_demand": 3.724,
+      "checkpoint_interval": 0.33,
+      "migration_penalty": 4,
+      "service_time": {
+        "cpu": 11,
+        "gpu": 12,
+        "npu": 14
+      },
+      "power_draw": {
+        "cpu": 7.954,
+        "gpu": 9.721,
+        "npu": 8.396
+      },
+      "deps": []
+    },
+    {
+      "task_id": "dag_stream-task-075",
+      "dag_id": "dag_stream-dag-027",
+      "arrival_time": 151,
+      "priority": 9,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 41.927,
+      "bandwidth_demand": 1.144,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 8,
+        "gpu": 14,
+        "npu": 19
+      },
+      "power_draw": {
+        "cpu": 7.16,
+        "gpu": 9.666,
+        "npu": 8.234
+      },
+      "deps": [
+        "dag_stream-task-074"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-076",
+      "dag_id": "dag_stream-dag-027",
+      "arrival_time": 155,
+      "priority": 7,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 42.201,
+      "bandwidth_demand": 1.856,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 8,
+        "gpu": 14,
+        "npu": 18
+      },
+      "power_draw": {
+        "cpu": 7.451,
+        "gpu": 10.058,
+        "npu": 8.568
+      },
+      "deps": [
+        "dag_stream-task-075",
+        "dag_stream-task-074"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-077",
+      "dag_id": "dag_stream-dag-027",
+      "arrival_time": 157,
+      "priority": 8,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 72.815,
+      "bandwidth_demand": 3.917,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 38,
+        "gpu": 13,
+        "npu": 22
+      },
+      "power_draw": {
+        "cpu": 9.668,
+        "gpu": 15.774,
+        "npu": 12.212
+      },
+      "deps": [
+        "dag_stream-task-076"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-078",
+      "dag_id": "dag_stream-dag-027",
+      "arrival_time": 159,
+      "priority": 5,
+      "latency_class": "best_effort",
+      "task_type": "memory_bound",
+      "size": 40.333,
+      "bandwidth_demand": 4.832,
+      "checkpoint_interval": 0.33,
+      "migration_penalty": 4,
+      "service_time": {
+        "cpu": 10,
+        "gpu": 11,
+        "npu": 13
+      },
+      "power_draw": {
+        "cpu": 8.725,
+        "gpu": 10.663,
+        "npu": 9.209
+      },
+      "deps": [
+        "dag_stream-task-077",
+        "dag_stream-task-076"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-079",
+      "dag_id": "dag_stream-dag-028",
+      "arrival_time": 160,
+      "priority": 5,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 67.929,
+      "bandwidth_demand": 4.451,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 32,
+        "gpu": 11,
+        "npu": 18
+      },
+      "power_draw": {
+        "cpu": 10.238,
+        "gpu": 16.703,
+        "npu": 12.932
+      },
+      "deps": []
+    },
+    {
+      "task_id": "dag_stream-task-080",
+      "dag_id": "dag_stream-dag-028",
+      "arrival_time": 161,
+      "priority": 8,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 64.49,
+      "bandwidth_demand": 3.967,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 31,
+        "gpu": 10,
+        "npu": 17
+      },
+      "power_draw": {
+        "cpu": 9.472,
+        "gpu": 15.454,
+        "npu": 11.965
+      },
+      "deps": [
+        "dag_stream-task-079"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-081",
+      "dag_id": "dag_stream-dag-028",
+      "arrival_time": 164,
+      "priority": 3,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 67.043,
+      "bandwidth_demand": 2.364,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 34,
+        "gpu": 11,
+        "npu": 19
+      },
+      "power_draw": {
+        "cpu": 8.593,
+        "gpu": 14.02,
+        "npu": 10.854
+      },
+      "deps": [
+        "dag_stream-task-080"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-082",
+      "dag_id": "dag_stream-dag-028",
+      "arrival_time": 166,
+      "priority": 6,
+      "latency_class": "interactive",
+      "task_type": "npu_infer",
+      "size": 28.837,
+      "bandwidth_demand": 1.076,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 9,
+        "gpu": 7,
+        "npu": 4
+      },
+      "power_draw": {
+        "cpu": 4.546,
+        "gpu": 6.365,
+        "npu": 4.85
+      },
+      "deps": [
+        "dag_stream-task-081"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-083",
+      "dag_id": "dag_stream-dag-028",
+      "arrival_time": 169,
+      "priority": 5,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 81.47,
+      "bandwidth_demand": 2.973,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 40,
+        "gpu": 13,
+        "npu": 23
+      },
+      "power_draw": {
+        "cpu": 9.468,
+        "gpu": 15.448,
+        "npu": 11.96
+      },
+      "deps": [
+        "dag_stream-task-082",
+        "dag_stream-task-081"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-084",
+      "dag_id": "dag_stream-dag-029",
+      "arrival_time": 172,
+      "priority": 8,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 37.337,
+      "bandwidth_demand": 2.059,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 7,
+        "gpu": 13,
+        "npu": 17
+      },
+      "power_draw": {
+        "cpu": 7.39,
+        "gpu": 9.976,
+        "npu": 8.498
+      },
+      "deps": []
+    },
+    {
+      "task_id": "dag_stream-task-085",
+      "dag_id": "dag_stream-dag-030",
+      "arrival_time": 174,
+      "priority": 10,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 30.895,
+      "bandwidth_demand": 1.809,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 6,
+        "gpu": 11,
+        "npu": 14
+      },
+      "power_draw": {
+        "cpu": 6.877,
+        "gpu": 9.284,
+        "npu": 7.908
+      },
+      "deps": []
+    },
+    {
+      "task_id": "dag_stream-task-086",
+      "dag_id": "dag_stream-dag-030",
+      "arrival_time": 175,
+      "priority": 7,
+      "latency_class": "interactive",
+      "task_type": "npu_infer",
+      "size": 18.467,
+      "bandwidth_demand": 1.648,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 6,
+        "gpu": 4,
+        "npu": 3
+      },
+      "power_draw": {
+        "cpu": 4.769,
+        "gpu": 6.677,
+        "npu": 5.087
+      },
+      "deps": [
+        "dag_stream-task-085"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-087",
+      "dag_id": "dag_stream-dag-030",
+      "arrival_time": 177,
+      "priority": 7,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 27.578,
+      "bandwidth_demand": 1.28,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 5,
+        "gpu": 10,
+        "npu": 13
+      },
+      "power_draw": {
+        "cpu": 6.338,
+        "gpu": 8.557,
+        "npu": 7.289
+      },
+      "deps": [
+        "dag_stream-task-086"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-088",
+      "dag_id": "dag_stream-dag-030",
+      "arrival_time": 180,
+      "priority": 6,
+      "latency_class": "best_effort",
+      "task_type": "memory_bound",
+      "size": 56.502,
+      "bandwidth_demand": 3.572,
+      "checkpoint_interval": 0.33,
+      "migration_penalty": 4,
+      "service_time": {
+        "cpu": 13,
+        "gpu": 14,
+        "npu": 16
+      },
+      "power_draw": {
+        "cpu": 8.448,
+        "gpu": 10.325,
+        "npu": 8.917
+      },
+      "deps": [
+        "dag_stream-task-087",
+        "dag_stream-task-086"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-089",
+      "dag_id": "dag_stream-dag-030",
+      "arrival_time": 184,
+      "priority": 6,
+      "latency_class": "best_effort",
+      "task_type": "memory_bound",
+      "size": 38.077,
+      "bandwidth_demand": 4.057,
+      "checkpoint_interval": 0.33,
+      "migration_penalty": 4,
+      "service_time": {
+        "cpu": 8,
+        "gpu": 9,
+        "npu": 10
+      },
+      "power_draw": {
+        "cpu": 7.897,
+        "gpu": 9.652,
+        "npu": 8.335
+      },
+      "deps": [
+        "dag_stream-task-088"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-090",
+      "dag_id": "dag_stream-dag-031",
+      "arrival_time": 186,
+      "priority": 7,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 26.455,
+      "bandwidth_demand": 1.467,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 5,
+        "gpu": 9,
+        "npu": 11
+      },
+      "power_draw": {
+        "cpu": 6.068,
+        "gpu": 8.192,
+        "npu": 6.978
+      },
+      "deps": []
+    },
+    {
+      "task_id": "dag_stream-task-091",
+      "dag_id": "dag_stream-dag-031",
+      "arrival_time": 187,
+      "priority": 4,
+      "latency_class": "best_effort",
+      "task_type": "memory_bound",
+      "size": 41.056,
+      "bandwidth_demand": 3.848,
+      "checkpoint_interval": 0.33,
+      "migration_penalty": 4,
+      "service_time": {
+        "cpu": 9,
+        "gpu": 10,
+        "npu": 11
+      },
+      "power_draw": {
+        "cpu": 7.734,
+        "gpu": 9.453,
+        "npu": 8.164
+      },
+      "deps": [
+        "dag_stream-task-090"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-092",
+      "dag_id": "dag_stream-dag-031",
+      "arrival_time": 188,
+      "priority": 5,
+      "latency_class": "best_effort",
+      "task_type": "memory_bound",
+      "size": 54.931,
+      "bandwidth_demand": 4.581,
+      "checkpoint_interval": 0.33,
+      "migration_penalty": 4,
+      "service_time": {
+        "cpu": 12,
+        "gpu": 13,
+        "npu": 15
+      },
+      "power_draw": {
+        "cpu": 8.86,
+        "gpu": 10.829,
+        "npu": 9.352
+      },
+      "deps": [
+        "dag_stream-task-091",
+        "dag_stream-task-090"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-093",
+      "dag_id": "dag_stream-dag-032",
+      "arrival_time": 189,
+      "priority": 7,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 26.822,
+      "bandwidth_demand": 1.036,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 6,
+        "gpu": 10,
+        "npu": 13
+      },
+      "power_draw": {
+        "cpu": 5.826,
+        "gpu": 7.866,
+        "npu": 6.7
+      },
+      "deps": []
+    },
+    {
+      "task_id": "dag_stream-task-094",
+      "dag_id": "dag_stream-dag-032",
+      "arrival_time": 190,
+      "priority": 7,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 41.862,
+      "bandwidth_demand": 1.47,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 8,
+        "gpu": 14,
+        "npu": 19
+      },
+      "power_draw": {
+        "cpu": 6.874,
+        "gpu": 9.28,
+        "npu": 7.905
+      },
+      "deps": [
+        "dag_stream-task-093"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-095",
+      "dag_id": "dag_stream-dag-032",
+      "arrival_time": 191,
+      "priority": 5,
+      "latency_class": "best_effort",
+      "task_type": "memory_bound",
+      "size": 48.291,
+      "bandwidth_demand": 4.43,
+      "checkpoint_interval": 0.33,
+      "migration_penalty": 4,
+      "service_time": {
+        "cpu": 10,
+        "gpu": 11,
+        "npu": 13
+      },
+      "power_draw": {
+        "cpu": 8.435,
+        "gpu": 10.309,
+        "npu": 8.903
+      },
+      "deps": [
+        "dag_stream-task-094"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-096",
+      "dag_id": "dag_stream-dag-032",
+      "arrival_time": 193,
+      "priority": 9,
+      "latency_class": "interactive",
+      "task_type": "npu_infer",
+      "size": 31.236,
+      "bandwidth_demand": 1.781,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 11,
+        "gpu": 8,
+        "npu": 5
+      },
+      "power_draw": {
+        "cpu": 5.115,
+        "gpu": 7.16,
+        "npu": 5.456
+      },
+      "deps": [
+        "dag_stream-task-095",
+        "dag_stream-task-094"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-097",
+      "dag_id": "dag_stream-dag-033",
+      "arrival_time": 195,
+      "priority": 7,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 41.596,
+      "bandwidth_demand": 1.094,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 8,
+        "gpu": 15,
+        "npu": 20
+      },
+      "power_draw": {
+        "cpu": 7.033,
+        "gpu": 9.494,
+        "npu": 8.087
+      },
+      "deps": []
+    },
+    {
+      "task_id": "dag_stream-task-098",
+      "dag_id": "dag_stream-dag-034",
+      "arrival_time": 197,
+      "priority": 2,
+      "latency_class": "best_effort",
+      "task_type": "memory_bound",
+      "size": 41.572,
+      "bandwidth_demand": 3.801,
+      "checkpoint_interval": 0.33,
+      "migration_penalty": 4,
+      "service_time": {
+        "cpu": 9,
+        "gpu": 10,
+        "npu": 11
+      },
+      "power_draw": {
+        "cpu": 8.055,
+        "gpu": 9.845,
+        "npu": 8.503
+      },
+      "deps": []
+    },
+    {
+      "task_id": "dag_stream-task-099",
+      "dag_id": "dag_stream-dag-035",
+      "arrival_time": 198,
+      "priority": 6,
+      "latency_class": "best_effort",
+      "task_type": "memory_bound",
+      "size": 35.324,
+      "bandwidth_demand": 4.972,
+      "checkpoint_interval": 0.33,
+      "migration_penalty": 4,
+      "service_time": {
+        "cpu": 8,
+        "gpu": 9,
+        "npu": 10
+      },
+      "power_draw": {
+        "cpu": 8.325,
+        "gpu": 10.175,
+        "npu": 8.787
+      },
+      "deps": []
+    },
+    {
+      "task_id": "dag_stream-task-100",
+      "dag_id": "dag_stream-dag-036",
+      "arrival_time": 202,
+      "priority": 8,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 31.74,
+      "bandwidth_demand": 1.279,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 7,
+        "gpu": 12,
+        "npu": 16
+      },
+      "power_draw": {
+        "cpu": 6.484,
+        "gpu": 8.754,
+        "npu": 7.457
+      },
+      "deps": []
+    },
+    {
+      "task_id": "dag_stream-task-101",
+      "dag_id": "dag_stream-dag-036",
+      "arrival_time": 204,
+      "priority": 5,
+      "latency_class": "best_effort",
+      "task_type": "memory_bound",
+      "size": 54.899,
+      "bandwidth_demand": 4.038,
+      "checkpoint_interval": 0.33,
+      "migration_penalty": 4,
+      "service_time": {
+        "cpu": 14,
+        "gpu": 15,
+        "npu": 17
+      },
+      "power_draw": {
+        "cpu": 8.617,
+        "gpu": 10.532,
+        "npu": 9.096
+      },
+      "deps": [
+        "dag_stream-task-100"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-102",
+      "dag_id": "dag_stream-dag-036",
+      "arrival_time": 206,
+      "priority": 8,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 23.009,
+      "bandwidth_demand": 2.387,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 5,
+        "gpu": 9,
+        "npu": 11
+      },
+      "power_draw": {
+        "cpu": 6.554,
+        "gpu": 8.848,
+        "npu": 7.537
+      },
+      "deps": [
+        "dag_stream-task-101",
+        "dag_stream-task-100"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-103",
+      "dag_id": "dag_stream-dag-037",
+      "arrival_time": 210,
+      "priority": 10,
+      "latency_class": "interactive",
+      "task_type": "npu_infer",
+      "size": 24.066,
+      "bandwidth_demand": 1.322,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 9,
+        "gpu": 6,
+        "npu": 4
+      },
+      "power_draw": {
+        "cpu": 4.428,
+        "gpu": 6.199,
+        "npu": 4.723
+      },
+      "deps": []
+    },
+    {
+      "task_id": "dag_stream-task-104",
+      "dag_id": "dag_stream-dag-037",
+      "arrival_time": 211,
+      "priority": 10,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 30.965,
+      "bandwidth_demand": 2.168,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 6,
+        "gpu": 11,
+        "npu": 15
+      },
+      "power_draw": {
+        "cpu": 7.203,
+        "gpu": 9.725,
+        "npu": 8.284
+      },
+      "deps": [
+        "dag_stream-task-103"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-105",
+      "dag_id": "dag_stream-dag-037",
+      "arrival_time": 212,
+      "priority": 8,
+      "latency_class": "interactive",
+      "task_type": "npu_infer",
+      "size": 19.361,
+      "bandwidth_demand": 1.781,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 7,
+        "gpu": 5,
+        "npu": 3
+      },
+      "power_draw": {
+        "cpu": 4.524,
+        "gpu": 6.333,
+        "npu": 4.825
+      },
+      "deps": [
+        "dag_stream-task-104",
+        "dag_stream-task-103"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-106",
+      "dag_id": "dag_stream-dag-037",
+      "arrival_time": 213,
+      "priority": 3,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 90.906,
+      "bandwidth_demand": 3.401,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 40,
+        "gpu": 13,
+        "npu": 22
+      },
+      "power_draw": {
+        "cpu": 10.339,
+        "gpu": 16.87,
+        "npu": 13.06
+      },
+      "deps": [
+        "dag_stream-task-105"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-107",
+      "dag_id": "dag_stream-dag-038",
+      "arrival_time": 216,
+      "priority": 9,
+      "latency_class": "interactive",
+      "task_type": "npu_infer",
+      "size": 16.907,
+      "bandwidth_demand": 1.103,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 6,
+        "gpu": 4,
+        "npu": 3
+      },
+      "power_draw": {
+        "cpu": 4.16,
+        "gpu": 5.824,
+        "npu": 4.437
+      },
+      "deps": []
+    },
+    {
+      "task_id": "dag_stream-task-108",
+      "dag_id": "dag_stream-dag-038",
+      "arrival_time": 219,
+      "priority": 6,
+      "latency_class": "interactive",
+      "task_type": "npu_infer",
+      "size": 20.733,
+      "bandwidth_demand": 1.588,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 7,
+        "gpu": 5,
+        "npu": 3
+      },
+      "power_draw": {
+        "cpu": 4.794,
+        "gpu": 6.712,
+        "npu": 5.114
+      },
+      "deps": [
+        "dag_stream-task-107"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-109",
+      "dag_id": "dag_stream-dag-038",
+      "arrival_time": 222,
+      "priority": 5,
+      "latency_class": "best_effort",
+      "task_type": "memory_bound",
+      "size": 42.79,
+      "bandwidth_demand": 4.291,
+      "checkpoint_interval": 0.33,
+      "migration_penalty": 4,
+      "service_time": {
+        "cpu": 9,
+        "gpu": 11,
+        "npu": 12
+      },
+      "power_draw": {
+        "cpu": 8.393,
+        "gpu": 10.258,
+        "npu": 8.859
+      },
+      "deps": [
+        "dag_stream-task-108"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-110",
+      "dag_id": "dag_stream-dag-039",
+      "arrival_time": 225,
+      "priority": 8,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 79.678,
+      "bandwidth_demand": 2.868,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 39,
+        "gpu": 13,
+        "npu": 22
+      },
+      "power_draw": {
+        "cpu": 9.735,
+        "gpu": 15.883,
+        "npu": 12.297
+      },
+      "deps": []
+    },
+    {
+      "task_id": "dag_stream-task-111",
+      "dag_id": "dag_stream-dag-039",
+      "arrival_time": 226,
+      "priority": 8,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 39.76,
+      "bandwidth_demand": 1.759,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 8,
+        "gpu": 14,
+        "npu": 18
+      },
+      "power_draw": {
+        "cpu": 6.961,
+        "gpu": 9.397,
+        "npu": 8.005
+      },
+      "deps": [
+        "dag_stream-task-110"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-112",
+      "dag_id": "dag_stream-dag-039",
+      "arrival_time": 229,
+      "priority": 5,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 75.418,
+      "bandwidth_demand": 2.254,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 37,
+        "gpu": 13,
+        "npu": 21
+      },
+      "power_draw": {
+        "cpu": 9.145,
+        "gpu": 14.92,
+        "npu": 11.551
+      },
+      "deps": [
+        "dag_stream-task-111",
+        "dag_stream-task-110"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-113",
+      "dag_id": "dag_stream-dag-040",
+      "arrival_time": 231,
+      "priority": 6,
+      "latency_class": "best_effort",
+      "task_type": "memory_bound",
+      "size": 54.677,
+      "bandwidth_demand": 4.871,
+      "checkpoint_interval": 0.33,
+      "migration_penalty": 4,
+      "service_time": {
+        "cpu": 14,
+        "gpu": 15,
+        "npu": 17
+      },
+      "power_draw": {
+        "cpu": 8.969,
+        "gpu": 10.962,
+        "npu": 9.467
+      },
+      "deps": []
+    },
+    {
+      "task_id": "dag_stream-task-114",
+      "dag_id": "dag_stream-dag-040",
+      "arrival_time": 235,
+      "priority": 2,
+      "latency_class": "best_effort",
+      "task_type": "memory_bound",
+      "size": 54.336,
+      "bandwidth_demand": 4.557,
+      "checkpoint_interval": 0.33,
+      "migration_penalty": 4,
+      "service_time": {
+        "cpu": 12,
+        "gpu": 14,
+        "npu": 16
+      },
+      "power_draw": {
+        "cpu": 8.754,
+        "gpu": 10.7,
+        "npu": 9.241
+      },
+      "deps": [
+        "dag_stream-task-113"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-115",
+      "dag_id": "dag_stream-dag-040",
+      "arrival_time": 236,
+      "priority": 7,
+      "latency_class": "interactive",
+      "task_type": "npu_infer",
+      "size": 20.65,
+      "bandwidth_demand": 0.951,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 8,
+        "gpu": 5,
+        "npu": 3
+      },
+      "power_draw": {
+        "cpu": 4.464,
+        "gpu": 6.249,
+        "npu": 4.761
+      },
+      "deps": [
+        "dag_stream-task-114"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-116",
+      "dag_id": "dag_stream-dag-040",
+      "arrival_time": 238,
+      "priority": 7,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 22.292,
+      "bandwidth_demand": 1.369,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 4,
+        "gpu": 8,
+        "npu": 10
+      },
+      "power_draw": {
+        "cpu": 5.886,
+        "gpu": 7.946,
+        "npu": 6.769
+      },
+      "deps": [
+        "dag_stream-task-115",
+        "dag_stream-task-114"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-117",
+      "dag_id": "dag_stream-dag-040",
+      "arrival_time": 241,
+      "priority": 9,
+      "latency_class": "interactive",
+      "task_type": "npu_infer",
+      "size": 22.757,
+      "bandwidth_demand": 1.315,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 8,
+        "gpu": 6,
+        "npu": 3
+      },
+      "power_draw": {
+        "cpu": 4.449,
+        "gpu": 6.229,
+        "npu": 4.746
+      },
+      "deps": [
+        "dag_stream-task-116"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-118",
+      "dag_id": "dag_stream-dag-040",
+      "arrival_time": 242,
+      "priority": 4,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 68.39,
+      "bandwidth_demand": 4.352,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 31,
+        "gpu": 11,
+        "npu": 18
+      },
+      "power_draw": {
+        "cpu": 10.067,
+        "gpu": 16.425,
+        "npu": 12.716
+      },
+      "deps": [
+        "dag_stream-task-117"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-119",
+      "dag_id": "dag_stream-dag-041",
+      "arrival_time": 244,
+      "priority": 7,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 87.355,
+      "bandwidth_demand": 3.025,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 45,
+        "gpu": 15,
+        "npu": 25
+      },
+      "power_draw": {
+        "cpu": 10.059,
+        "gpu": 16.412,
+        "npu": 12.706
+      },
+      "deps": []
+    },
+    {
+      "task_id": "dag_stream-task-120",
+      "dag_id": "dag_stream-dag-041",
+      "arrival_time": 245,
+      "priority": 9,
+      "latency_class": "latency_sensitive",
+      "task_type": "cpu_control",
+      "size": 25.01,
+      "bandwidth_demand": 2.387,
+      "checkpoint_interval": 0.25,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 5,
+        "gpu": 8,
+        "npu": 11
+      },
+      "power_draw": {
+        "cpu": 6.802,
+        "gpu": 9.183,
+        "npu": 7.822
+      },
+      "deps": [
+        "dag_stream-task-119"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-121",
+      "dag_id": "dag_stream-dag-041",
+      "arrival_time": 247,
+      "priority": 3,
+      "latency_class": "best_effort",
+      "task_type": "memory_bound",
+      "size": 28.453,
+      "bandwidth_demand": 3.774,
+      "checkpoint_interval": 0.33,
+      "migration_penalty": 4,
+      "service_time": {
+        "cpu": 6,
+        "gpu": 7,
+        "npu": 8
+      },
+      "power_draw": {
+        "cpu": 7.243,
+        "gpu": 8.853,
+        "npu": 7.646
+      },
+      "deps": [
+        "dag_stream-task-120"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-122",
+      "dag_id": "dag_stream-dag-041",
+      "arrival_time": 250,
+      "priority": 7,
+      "latency_class": "interactive",
+      "task_type": "npu_infer",
+      "size": 21.093,
+      "bandwidth_demand": 0.93,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 8,
+        "gpu": 6,
+        "npu": 3
+      },
+      "power_draw": {
+        "cpu": 4.416,
+        "gpu": 6.183,
+        "npu": 4.711
+      },
+      "deps": [
+        "dag_stream-task-121"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-123",
+      "dag_id": "dag_stream-dag-042",
+      "arrival_time": 252,
+      "priority": 6,
+      "latency_class": "interactive",
+      "task_type": "npu_infer",
+      "size": 18.204,
+      "bandwidth_demand": 1.45,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 2,
+      "service_time": {
+        "cpu": 6,
+        "gpu": 5,
+        "npu": 3
+      },
+      "power_draw": {
+        "cpu": 4.608,
+        "gpu": 6.451,
+        "npu": 4.915
+      },
+      "deps": []
+    },
+    {
+      "task_id": "dag_stream-task-124",
+      "dag_id": "dag_stream-dag-043",
+      "arrival_time": 253,
+      "priority": 6,
+      "latency_class": "throughput_oriented",
+      "task_type": "gpu_dense",
+      "size": 70.479,
+      "bandwidth_demand": 2.297,
+      "checkpoint_interval": 0.2,
+      "migration_penalty": 3,
+      "service_time": {
+        "cpu": 34,
+        "gpu": 12,
+        "npu": 19
+      },
+      "power_draw": {
+        "cpu": 8.827,
+        "gpu": 14.402,
+        "npu": 11.15
+      },
+      "deps": []
+    },
+    {
+      "task_id": "dag_stream-task-125",
+      "dag_id": "dag_stream-dag-043",
+      "arrival_time": 254,
+      "priority": 4,
+      "latency_class": "best_effort",
+      "task_type": "memory_bound",
+      "size": 35.709,
+      "bandwidth_demand": 5.186,
+      "checkpoint_interval": 0.33,
+      "migration_penalty": 4,
+      "service_time": {
+        "cpu": 8,
+        "gpu": 9,
+        "npu": 10
+      },
+      "power_draw": {
+        "cpu": 8.428,
+        "gpu": 10.301,
+        "npu": 8.897
+      },
+      "deps": [
+        "dag_stream-task-124"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-126",
+      "dag_id": "dag_stream-dag-043",
+      "arrival_time": 255,
+      "priority": 5,
+      "latency_class": "best_effort",
+      "task_type": "memory_bound",
+      "size": 33.27,
+      "bandwidth_demand": 4.587,
+      "checkpoint_interval": 0.33,
+      "migration_penalty": 4,
+      "service_time": {
+        "cpu": 8,
+        "gpu": 9,
+        "npu": 10
+      },
+      "power_draw": {
+        "cpu": 7.996,
+        "gpu": 9.773,
+        "npu": 8.44
+      },
+      "deps": [
+        "dag_stream-task-125",
+        "dag_stream-task-124"
+      ]
+    },
+    {
+      "task_id": "dag_stream-task-127",
+      "dag_id": "dag_stream-dag-043",
+      "arrival_time": 257,
+      "priority": 6,
+      "latency_class": "best_effort",
+      "task_type": "memory_bound",
+      "size": 42.059,
+      "bandwidth_demand": 4.29,
+      "checkpoint_interval": 0.33,
+      "migration_penalty": 4,
+      "service_time": {
+        "cpu": 10,
+        "gpu": 12,
+        "npu": 13
+      },
+      "power_draw": {
+        "cpu": 8.096,
+        "gpu": 9.896,
+        "npu": 8.546
+      },
+      "deps": [
+        "dag_stream-task-126"
+      ]
+    }
+  ]
+}

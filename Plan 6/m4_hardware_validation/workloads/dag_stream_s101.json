@@ -1,0 +1,360 @@
+{
+  "workload_id": "dag_stream_s101",
+  "family": "dag_stream",
+  "seed": 101,
+  "notes": "Real Apple M4 Pro hardware validation workload using chunked shared-memory GEMM tasks.",
+  "task_specs": [
+    {
+      "task_id": "T000",
+      "size": 1536,
+      "total_chunks": 66,
+      "priority": 5,
+      "arrival_ms": 0.0,
+      "parents": [],
+      "family": "dag_stream",
+      "bytes_moved": 28311552.0,
+      "criticality": 1.0
+    },
+    {
+      "task_id": "T001",
+      "size": 1536,
+      "total_chunks": 81,
+      "priority": 5,
+      "arrival_ms": 6.144,
+      "parents": [],
+      "family": "dag_stream",
+      "bytes_moved": 28311552.0,
+      "criticality": 1.0
+    },
+    {
+      "task_id": "T002",
+      "size": 1536,
+      "total_chunks": 66,
+      "priority": 3,
+      "arrival_ms": 16.827,
+      "parents": [
+        "T000",
+        "T001"
+      ],
+      "family": "dag_stream",
+      "bytes_moved": 28311552.0,
+      "criticality": 0.916667
+    },
+    {
+      "task_id": "T003",
+      "size": 2048,
+      "total_chunks": 71,
+      "priority": 2,
+      "arrival_ms": 20.745,
+      "parents": [
+        "T000",
+        "T001",
+        "T002"
+      ],
+      "family": "dag_stream",
+      "bytes_moved": 50331648.0,
+      "criticality": 0.833333
+    },
+    {
+      "task_id": "T004",
+      "size": 1536,
+      "total_chunks": 69,
+      "priority": 2,
+      "arrival_ms": 23.33,
+      "parents": [
+        "T003"
+      ],
+      "family": "dag_stream",
+      "bytes_moved": 28311552.0,
+      "criticality": 0.416667
+    },
+    {
+      "task_id": "T005",
+      "size": 1024,
+      "total_chunks": 73,
+      "priority": 1,
+      "arrival_ms": 33.568,
+      "parents": [],
+      "family": "dag_stream",
+      "bytes_moved": 12582912.0,
+      "criticality": 0.833333
+    },
+    {
+      "task_id": "T006",
+      "size": 1536,
+      "total_chunks": 60,
+      "priority": 3,
+      "arrival_ms": 43.159,
+      "parents": [
+        "T001",
+        "T005"
+      ],
+      "family": "dag_stream",
+      "bytes_moved": 28311552.0,
+      "criticality": 0.75
+    },
+    {
+      "task_id": "T007",
+      "size": 1024,
+      "total_chunks": 80,
+      "priority": 5,
+      "arrival_ms": 48.478,
+      "parents": [
+        "T001",
+        "T002",
+        "T003"
+      ],
+      "family": "dag_stream",
+      "bytes_moved": 12582912.0,
+      "criticality": 0.75
+    },
+    {
+      "task_id": "T008",
+      "size": 768,
+      "total_chunks": 71,
+      "priority": 5,
+      "arrival_ms": 66.706,
+      "parents": [
+        "T006",
+        "T007"
+      ],
+      "family": "dag_stream",
+      "bytes_moved": 7077888.0,
+      "criticality": 0.666667
+    },
+    {
+      "task_id": "T009",
+      "size": 2048,
+      "total_chunks": 83,
+      "priority": 5,
+      "arrival_ms": 61.555,
+      "parents": [
+        "T002",
+        "T007",
+        "T008"
+      ],
+      "family": "dag_stream",
+      "bytes_moved": 50331648.0,
+      "criticality": 0.583333
+    },
+    {
+      "task_id": "T010",
+      "size": 1024,
+      "total_chunks": 86,
+      "priority": 3,
+      "arrival_ms": 57.719,
+      "parents": [
+        "T005",
+        "T009"
+      ],
+      "family": "dag_stream",
+      "bytes_moved": 12582912.0,
+      "criticality": 0.5
+    },
+    {
+      "task_id": "T011",
+      "size": 1536,
+      "total_chunks": 87,
+      "priority": 5,
+      "arrival_ms": 75.641,
+      "parents": [
+        "T007",
+        "T010"
+      ],
+      "family": "dag_stream",
+      "bytes_moved": 28311552.0,
+      "criticality": 0.416667
+    },
+    {
+      "task_id": "T012",
+      "size": 1536,
+      "total_chunks": 61,
+      "priority": 2,
+      "arrival_ms": 84.589,
+      "parents": [],
+      "family": "dag_stream",
+      "bytes_moved": 28311552.0,
+      "criticality": 0.166667
+    },
+    {
+      "task_id": "T013",
+      "size": 1536,
+      "total_chunks": 69,
+      "priority": 3,
+      "arrival_ms": 100.156,
+      "parents": [
+        "T004",
+        "T011"
+      ],
+      "family": "dag_stream",
+      "bytes_moved": 28311552.0,
+      "criticality": 0.0
+    },
+    {
+      "task_id": "T014",
+      "size": 1536,
+      "total_chunks": 79,
+      "priority": 1,
+      "arrival_ms": 77.556,
+      "parents": [
+        "T004",
+        "T005"
+      ],
+      "family": "dag_stream",
+      "bytes_moved": 28311552.0,
+      "criticality": 0.333333
+    },
+    {
+      "task_id": "T015",
+      "size": 768,
+      "total_chunks": 75,
+      "priority": 4,
+      "arrival_ms": 87.39,
+      "parents": [
+        "T007",
+        "T010",
+        "T011"
+      ],
+      "family": "dag_stream",
+      "bytes_moved": 7077888.0,
+      "criticality": 0.333333
+    },
+    {
+      "task_id": "T016",
+      "size": 2048,
+      "total_chunks": 81,
+      "priority": 5,
+      "arrival_ms": 130.253,
+      "parents": [
+        "T000",
+        "T012"
+      ],
+      "family": "dag_stream",
+      "bytes_moved": 50331648.0,
+      "criticality": 0.083333
+    },
+    {
+      "task_id": "T017",
+      "size": 1536,
+      "total_chunks": 63,
+      "priority": 3,
+      "arrival_ms": 128.413,
+      "parents": [
+        "T002",
+        "T014",
+        "T015"
+      ],
+      "family": "dag_stream",
+      "bytes_moved": 28311552.0,
+      "criticality": 0.25
+    },
+    {
+      "task_id": "T018",
+      "size": 1536,
+      "total_chunks": 75,
+      "priority": 4,
+      "arrival_ms": 125.294,
+      "parents": [
+        "T015",
+        "T016"
+      ],
+      "family": "dag_stream",
+      "bytes_moved": 28311552.0,
+      "criticality": 0.0
+    },
+    {
+      "task_id": "T019",
+      "size": 1024,
+      "total_chunks": 61,
+      "priority": 4,
+      "arrival_ms": 142.784,
+      "parents": [
+        "T005"
+      ],
+      "family": "dag_stream",
+      "bytes_moved": 12582912.0,
+      "criticality": 0.0
+    },
+    {
+      "task_id": "T020",
+      "size": 1536,
+      "total_chunks": 69,
+      "priority": 4,
+      "arrival_ms": 118.285,
+      "parents": [
+        "T008"
+      ],
+      "family": "dag_stream",
+      "bytes_moved": 28311552.0,
+      "criticality": 0.166667
+    },
+    {
+      "task_id": "T021",
+      "size": 1536,
+      "total_chunks": 77,
+      "priority": 1,
+      "arrival_ms": 171.283,
+      "parents": [],
+      "family": "dag_stream",
+      "bytes_moved": 28311552.0,
+      "criticality": 0.0
+    },
+    {
+      "task_id": "T022",
+      "size": 1024,
+      "total_chunks": 78,
+      "priority": 5,
+      "arrival_ms": 179.006,
+      "parents": [
+        "T014",
+        "T017"
+      ],
+      "family": "dag_stream",
+      "bytes_moved": 12582912.0,
+      "criticality": 0.166667
+    },
+    {
+      "task_id": "T023",
+      "size": 1024,
+      "total_chunks": 88,
+      "priority": 2,
+      "arrival_ms": 195.107,
+      "parents": [
+        "T017",
+        "T020",
+        "T022"
+      ],
+      "family": "dag_stream",
+      "bytes_moved": 12582912.0,
+      "criticality": 0.083333
+    },
+    {
+      "task_id": "T024",
+      "size": 1024,
+      "total_chunks": 75,
+      "priority": 5,
+      "arrival_ms": 147.095,
+      "parents": [
+        "T023"
+      ],
+      "family": "dag_stream",
+      "bytes_moved": 12582912.0,
+      "criticality": 0.0
+    },
+    {
+      "task_id": "T025",
+      "size": 2048,
+      "total_chunks": 82,
+      "priority": 5,
+      "arrival_ms": 173.808,
+      "parents": [
+        "T005",
+        "T020",
+        "T023"
+      ],
+      "family": "dag_stream",
+      "bytes_moved": 50331648.0,
+      "criticality": 0.0
+    }
+  ]
+}

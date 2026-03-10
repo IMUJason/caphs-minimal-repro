@@ -1,0 +1,32 @@
+paths:
+  data_dir: "Plan 6/legacy/reproducibility_package/data/v2_main_suite"
+  results_dir: "Plan 6/results/v2_main_suite"
+  logs_dir: "Plan 6/logs/v2_main_suite"
+
+workloads:
+  names:
+    - steady_mixed
+    - bursty_mixed
+    - thermal_pressure
+    - dag_stream
+  seeds:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+
+policies:
+  - fcfs
+  - fixed_priority
+  - least_loaded
+  - work_stealing
+  - heft
+  - feedback_threshold
+  - plan6
+  - plan6_v2
+  - plan6_stochastic
+  - plan6_nomigration
+  - plan6_nofeedback
+  - plan6_nothermal
+  - plan6_noenergy

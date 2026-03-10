@@ -1,0 +1,7 @@
+baseline,paired_runs,throughput_delta_pct,p95_latency_delta_pct,energy_delta_pct,joint_wins,throughput_wins,throughput_losses,p95_wins,p95_losses,energy_wins,energy_losses,throughput_sign_pvalue,p95_sign_pvalue,energy_sign_pvalue
+fcfs,40,14.0234,39.9045,17.7533,40,40,0,40,0,40,0,0.0,0.0,0.0
+least_loaded,40,11.5248,34.559,20.3105,40,40,0,40,0,40,0,0.0,0.0,0.0
+fixed_priority,40,1.3397,10.0195,0.7291,19,23,13,31,8,20,20,0.132498,0.000294,1.0
+work_stealing,40,1.7968,12.0131,1.4778,19,23,11,32,7,24,16,0.057613,7e-05,0.268187
+heft,40,3.1625,28.9153,14.7608,32,32,7,40,0,39,1,7e-05,0.0,0.0
+feedback_threshold,40,5.971,29.1816,15.1625,36,37,2,39,1,40,0,0.0,0.0,0.0
