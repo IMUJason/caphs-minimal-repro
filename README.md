@@ -4,6 +4,10 @@ This repository is a minimal, upload-ready reproducibility package for `CAPHS` (
 
 It contains only the code, configuration, workload data, and compact reference result tables needed to reproduce the core simulation study and the Apple M4 Pro hardware validation. It does **not** include the manuscript sources, paper figures, PDFs, bibliography files, or large intermediate artifacts.
 
+## License
+
+This repository is distributed under the `MIT` License. See `LICENSE`.
+
 ## Repository layout
 
 - `Plan 6/legacy/reproducibility_package/`
@@ -89,4 +93,3 @@ These files are intended for quick comparison and review. They are not a substit
 - bibliography and reference PDFs
 - logs, caches, and temporary files
 - large raw run outputs and monitoring traces
-
